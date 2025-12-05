@@ -1,6 +1,6 @@
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { IoIosPhotos } from "react-icons/io";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -12,7 +12,9 @@ import { imageUpload } from "../../utils";
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
   const { createUserFunc } = useAuth();
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const handleRegister = async (data) => {
     const imageFile = data.photo[0];
     const images = await imageUpload(imageFile);
@@ -38,6 +40,7 @@ const Register = () => {
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+      navigate(from, { replace: true });
       reset();
     } catch (error) {
       console.error(error);
@@ -80,7 +83,7 @@ const Register = () => {
               htmlFor="photo"
               className="text-green-700 font-semibold mb-1"
             >
-              Your Photo URL
+              Your Photo
             </label>
             <div className="flex items-center border border-green-300 rounded p-2 focus-within:ring-2 focus-within:ring-green-400">
               <IoIosPhotos className="text-green-500 mr-2" />

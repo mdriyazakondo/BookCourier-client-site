@@ -2,10 +2,13 @@ import { FaGoogle } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router";
 
 const GoogleLogin = () => {
   const { googleUserFunc } = useAuth();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleGoogleLogin = async () => {
     try {
       const result = await googleUserFunc();
@@ -23,6 +26,7 @@ const GoogleLogin = () => {
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+      navigate(from, { replace: true });
     } catch (error) {
       Swal.fire({
         title: "Login Failed",

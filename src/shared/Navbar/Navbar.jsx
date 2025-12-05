@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
@@ -7,6 +7,7 @@ import Loading from "../Loading/Loading";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { user, logoutUserFunc, loading } = useAuth();
 
   const isActive = (path) =>
@@ -33,21 +34,30 @@ const Navbar = () => {
   if (loading) return <Loading />;
 
   const handleLogout = async () => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout!",
+    });
+    if (!confirm.isConfirmed) return;
     try {
-      await logoutUserFunc(); // assuming this handles Firebase logout
-
-      // SweetAlert2 success
+      await logoutUserFunc();
       Swal.fire({
         title: "Logout Successful",
         text: "You have been logged out",
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+      navigate("/");
     } catch (error) {
       console.error(error);
       Swal.fire({
         title: "Logout Failed",
-        text: error.message,
+        text: error.message || "Something went wrong",
         icon: "error",
         confirmButtonColor: "#ef4444",
       });

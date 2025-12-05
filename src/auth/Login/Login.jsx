@@ -2,7 +2,7 @@
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -10,7 +10,9 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const { loginUserFunc } = useAuth();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleLogin = async (data) => {
     try {
       const result = await loginUserFunc(data.email, data.password);
@@ -27,6 +29,7 @@ const Login = () => {
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+      navigate(from, { replace: true });
       reset();
     } catch (error) {
       Swal.fire({

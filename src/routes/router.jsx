@@ -10,6 +10,7 @@ import Home from "../pages/Home/Home";
 import BookDetails from "../pages/BookDetails/BookDetails";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import ErrorPage from "../shared/Error/ErrorPage";
+import Profile from "../pages/Dashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "my-books",
         element: <MyBook />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
