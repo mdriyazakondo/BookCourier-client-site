@@ -8,7 +8,7 @@ const Logo = () => {
         <img
           src="https://ik.imagekit.io/2o23yla4n/depositphotos_208897764-stock-photo-library-icon.jpg"
           alt="logo"
-          className="w-14 h-14"
+          className="w-14 h-14 rounded-full"
         />
         <h2 className="text-2xl font-bold text-green-500">BookCourier</h2>
       </Link>

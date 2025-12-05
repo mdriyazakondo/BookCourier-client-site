@@ -18,6 +18,7 @@ const MyBookTable = ({ book }) => {
     status,
     description,
     image,
+    create_date,
   } = book;
   return (
     <tr>
@@ -30,8 +31,9 @@ const MyBookTable = ({ book }) => {
       <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
         <p className="text-gray-900 ">{authorName}</p>
       </td>
+
       <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{publishedYear}</p>
+        <p className="text-gray-900 ">{new Date(create_date).toDateString()}</p>
       </td>
       <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
         <p className="text-gray-900 ">{price}</p>
@@ -49,15 +51,13 @@ const MyBookTable = ({ book }) => {
         </p>
       </td>
 
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-          ></span>
-          <span className="relative text-nowrap">Update Book</span>
-        </span>
-        {/* Modal */}
+      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap ">
+        <button className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap">
+          Update Book
+        </button>
+        <button className="bg-red-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap ml-2">
+          Delete Book
+        </button>
       </td>
     </tr>
   );

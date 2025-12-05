@@ -36,6 +36,7 @@ const BookDetails = () => {
     status,
     description,
     image,
+    create_date,
   } = book;
 
   return (
@@ -78,7 +79,7 @@ const BookDetails = () => {
                 <strong>Publisher:</strong> {publisher}
               </p>
               <p>
-                <strong>Year:</strong> {publishedYear}
+                <strong>Year:</strong> {new Date(create_date).getFullYear()}
               </p>
               <p>
                 <strong>ISBN:</strong> {isbn}

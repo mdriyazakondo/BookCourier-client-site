@@ -37,7 +37,7 @@ const MyBook = () => {
   return (
     <div>
       <h2 className="text-center text-3xl md:text-4xl font-bold text-green-500">
-        My All Books 
+        My All Books
       </h2>
       <div className=" px-4 sm:px-8">
         <div className="pb-8 pt-2">
@@ -64,11 +64,12 @@ const MyBook = () => {
                     >
                       Author Name
                     </th>
+
                     <th
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
-                      Published Year
+                      create date
                     </th>
 
                     <th
