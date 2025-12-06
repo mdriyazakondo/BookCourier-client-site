@@ -12,6 +12,7 @@ import AllBooks from "../pages/AllBooks/AllBooks";
 import ErrorPage from "../shared/Error/ErrorPage";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import PrivateRoute from "./PriviteRoute/PriviteRoute";
+import UserManagment from "../pages/Dashboard/Admin/UserManagment/UserManagment";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,11 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      //===== admin=====//
+      {
+        path: "user-manage",
+        element: <UserManagment />,
       },
     ],
   },
