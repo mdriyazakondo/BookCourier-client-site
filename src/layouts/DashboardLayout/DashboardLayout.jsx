@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { FiHome, FiMenu, FiSun, FiMoon } from "react-icons/fi";
-import { MdLogout } from "react-icons/md";
+import { MdDashboard, MdLogout } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { FaBook, FaJediOrder } from "react-icons/fa";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
+import { SiWikibooks } from "react-icons/si";
+import { BsBorderStyle } from "react-icons/bs";
+import { GrUserManager } from "react-icons/gr";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
@@ -16,24 +21,6 @@ const DashboardLayout = () => {
     pathname === path
       ? "bg-green-200 dark:bg-green-700 text-green-700 dark:text-white font-semibold"
       : "hover:bg-green-100 dark:hover:bg-gray-700";
-
-  // Theme State
-  const [theme, setTheme] = React.useState(
-    localStorage.getItem("theme") || "light"
-  );
-
-  // Apply Theme
-  React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // Toggle Theme
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   //======== user logout =========
   const handleLogout = async () => {
@@ -67,6 +54,8 @@ const DashboardLayout = () => {
     }
   };
 
+  if (loading) return null;
+
   return (
     <div className="min-h-screen bg-green-50 dark:bg-gray-900 dark:text-white">
       <div className="drawer lg:drawer-open">
@@ -80,21 +69,9 @@ const DashboardLayout = () => {
               <FiMenu className="text-xl" />
             </label>
 
-            <h2 className="text-xl font-semibold">
+            <h2 className="text-xl font-semibold text-green-500">
               <Link to="/">Dashboard</Link>
             </h2>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            >
-              {theme === "light" ? (
-                <FiMoon className="text-xl" />
-              ) : (
-                <FiSun className="text-xl" />
-              )}
-            </button>
           </nav>
 
           <div className="p-6 ">
@@ -112,59 +89,91 @@ const DashboardLayout = () => {
                 {/* Home */}
                 <li>
                   <Link
+                    to="/dashboard"
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/dashboard"
+                    )}`}
+                  >
+                    <MdDashboard className="text-lg" />
+                    <span>Dashboard</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/dashboard/my-orders"
-                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/dashboard/my-orders"
                     )}`}
                   >
-                    <FiHome className="text-lg" />
+                    <FaJediOrder className="text-lg" />
                     <span>My Orders</span>
                   </Link>
                 </li>
                 <li>
                   <Link
+                    to="/dashboard/invoices"
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/dashboard/invoices"
+                    )}`}
+                  >
+                    <LiaFileInvoiceSolid className="text-lg" />
+                    <span>Invoices</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/dashboard/add-books"
-                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/dashboard/add-books"
                     )}`}
                   >
-                    <FiHome className="text-lg" />
+                    <FaBook className="text-lg" />
                     <span>Add Book</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/dashboard/my-books"
-                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/dashboard/my-books"
                     )}`}
                   >
-                    <FiHome className="text-lg" />
+                    <SiWikibooks className="text-lg" />
                     <span>My Books</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/orders"
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/dashboard/orders"
+                    )}`}
+                  >
+                    <BsBorderStyle className="text-lg" />
+                    <span>Orders</span>
                   </Link>
                 </li>
 
                 {/* Admin */}
-
                 <li>
                   <Link
-                    to="/dashboard/user-manage"
-                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/user-manage"
+                    to="/dashboard/all-user"
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/dashboard/all-user"
                     )}`}
                   >
-                    <FiHome className="text-lg" />
-                    <span>User Manage</span>
+                    <GrUserManager className="text-lg" />
+                    <span>All User</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/dashboard/manage-book"
-                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/dashboard/manage-book"
                     )}`}
                   >
-                    <FiHome className="text-lg" />
+                    <FaBook className="text-lg" />
                     <span>Manage Book</span>
                   </Link>
                 </li>
@@ -174,7 +183,7 @@ const DashboardLayout = () => {
               <li>
                 <Link
                   to="/dashboard/profile"
-                  className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                  className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                     "/dashboard/profile"
                   )}`}
                 >
@@ -187,7 +196,7 @@ const DashboardLayout = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-green-200 dark:hover:bg-red-600 dark:text-white text-green-700 transition"
+                  className="flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg hover:bg-green-200 dark:hover:bg-red-600 dark:text-white  transition"
                 >
                   <MdLogout className="text-lg" />
                   <span>Logout</span>

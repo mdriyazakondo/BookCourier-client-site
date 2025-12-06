@@ -1,6 +1,7 @@
+import axios from "axios";
 import React from "react";
 
-const OrderTableRow = ({ order, handleUpdate, handleDelete }) => {
+const OrderTableRow = ({ order }) => {
   const {
     _id,
     name,
@@ -12,32 +13,49 @@ const OrderTableRow = ({ order, handleUpdate, handleDelete }) => {
     paymentStatus,
     order_date,
     quantity,
+    image,
+    description,
   } = order;
 
+  const handlePayment = async (payment) => {
+    const paymentInfo = {
+      price: payment.price,
+      customerEmail: payment.customerEmail,
+      _id: payment._id,
+      name: payment.name,
+    };
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/create-checkout-session`,
+      paymentInfo
+    );
+    console.log(res.data);
+    return (window.location.href = res.data.url);
+  };
+
   return (
-    <tr className="bg-white border-b border-gray-400">
+    <tr className="bg-white border-b border-gray-400 text-gray-700">
       {/* Customer Name */}
-      <td className="py-2 px-4  border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4  border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {customerName}
       </td>
 
       {/* Book / Product Name */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {name}
       </td>
 
       {/* Author Name */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {authorName}
       </td>
 
       {/* Customer Email */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {customerEmail}
       </td>
 
       {/* Quantity */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         <span
           className={`${
             paymentStatus === "unpaid"
@@ -52,7 +70,7 @@ const OrderTableRow = ({ order, handleUpdate, handleDelete }) => {
 
       {/* Status */}
       <td
-        className={`py-2 px-4 border border-gray-400 text-center text-sm text-nowrap `}
+        className={`py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap `}
       >
         <span
           className={`${
@@ -67,28 +85,29 @@ const OrderTableRow = ({ order, handleUpdate, handleDelete }) => {
       </td>
 
       {/* Price */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         ${price}
       </td>
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {quantity}
       </td>
 
       {/* Order Date */}
-      <td className="py-2 px-4 border border-gray-400 text-center text-sm text-nowrap">
+      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {new Date(order_date).toDateString()}
       </td>
 
       {/* Actions */}
       <td className="py-2 px-4  text-center text-sm text-nowrap">
         <button
-          onClick={() => handleUpdate(_id)}
+          disabled={paymentStatus === "paid"}
+          onClick={() => handlePayment(order)}
           className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
         >
           Pay
         </button>
         <button
-          onClick={() => handleDelete(_id)}
+          disabled={paymentStatus === "paid"}
           className="bg-red-500 text-white py-1 px-4 rounded-sm cursor-pointer ml-2"
         >
           Cancelled

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import Loading from "../../shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const BookDetails = () => {
   const { user } = useAuth();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data: book = {}, isLoading } = useQuery({
     queryKey: ["book", id],
@@ -54,6 +55,7 @@ const BookDetails = () => {
               icon: "success",
             });
           }
+          navigate("/dashboard/my-orders");
         } catch (error) {
           Swal.fire({
             title: "Error!",

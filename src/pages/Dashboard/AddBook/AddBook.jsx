@@ -90,7 +90,7 @@ const AddBook = () => {
             type="text"
             {...register("bookTitle", { required: true })}
             placeholder="Enter book title"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -104,7 +104,7 @@ const AddBook = () => {
             type="text"
             defaultValue={user?.displayName}
             placeholder="Enter author name"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -117,7 +117,7 @@ const AddBook = () => {
             {...register("isbn", { required: true })}
             type="text"
             placeholder="Enter ISBN number"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -130,7 +130,7 @@ const AddBook = () => {
             {...register("publisher", { required: true })}
             type="text"
             placeholder="Enter publisher name"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -143,7 +143,7 @@ const AddBook = () => {
             {...register("publishedYear", { required: true })}
             type="number"
             placeholder="Enter published year"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -156,7 +156,7 @@ const AddBook = () => {
             {...register("pageNumber", { required: true })}
             type="number"
             placeholder="Enter total pages"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -169,7 +169,7 @@ const AddBook = () => {
             {...register("language", { required: true })}
             type="text"
             placeholder="Enter language"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -182,7 +182,7 @@ const AddBook = () => {
             {...register("genre", { required: true })}
             type="text"
             placeholder="Enter genre"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -195,7 +195,7 @@ const AddBook = () => {
             {...register("price", { required: true })}
             type="number"
             placeholder="Enter price"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -208,7 +208,7 @@ const AddBook = () => {
             {...register("stockQuantity", { required: true })}
             type="number"
             placeholder="Enter stock quantity"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -221,7 +221,7 @@ const AddBook = () => {
             {...register("edition", { required: true })}
             type="text"
             placeholder="Enter edition"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -234,7 +234,7 @@ const AddBook = () => {
             {...register("format", { required: true })}
             type="text"
             placeholder="Hardcover / Paperback / eBook"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -247,7 +247,7 @@ const AddBook = () => {
             {...register("category", { required: true })}
             type="text"
             placeholder="Enter category"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
         {/* Status */}
@@ -257,7 +257,7 @@ const AddBook = () => {
           </label>
           <select
             {...register("status", { required: true })}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             defaultValue=""
           >
             <option value="" disabled>
@@ -276,7 +276,7 @@ const AddBook = () => {
           <input
             {...register("bookCover", { required: true })}
             type="file"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
@@ -288,7 +288,7 @@ const AddBook = () => {
           <textarea
             {...register("description", { required: true })}
             placeholder="Enter book description"
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 

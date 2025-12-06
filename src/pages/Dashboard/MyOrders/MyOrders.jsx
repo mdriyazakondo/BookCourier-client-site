@@ -19,18 +19,6 @@ const MyOrders = () => {
       return res.data;
     },
   });
-  // const {
-  //   _id,
-  //   name,
-  //   authorName,
-  //   customerName,
-  //   customerEmail,
-  //   price,
-  //   status,
-  //   paymentStatus,
-  //   order_date,
-  //   quantity,
-  // } = orders;
 
   return (
     <div>

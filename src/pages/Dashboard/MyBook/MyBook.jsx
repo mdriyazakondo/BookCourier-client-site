@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import MyBookTable from "../../../components/Dashboard/TableRow/MyBookTable";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
+import Loading from "../../../shared/Loading/Loading";
 
 const MyBook = () => {
+  const { user } = useAuth();
   const {
     data: books = [],
     isLoading,
@@ -15,6 +18,7 @@ const MyBook = () => {
       return res.data;
     },
   });
+  if (isLoading) return <Loading />;
 
   const handleDelete = async (id, refetch) => {
     const confirm = await Swal.fire({

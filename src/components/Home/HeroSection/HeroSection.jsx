@@ -22,7 +22,7 @@ const HeroSection = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-[1500px] mx-auto px-4 md:px-6 lg:px-0">
+    <div className="max-w-[1500px] mx-auto px-4 md:px-6 lg:px-0 bg-white border border-gray-200 rounded-md">
       <Swiper
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ dynamicBullets: true }}

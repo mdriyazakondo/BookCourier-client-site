@@ -14,6 +14,10 @@ import Profile from "../pages/Dashboard/Profile/Profile";
 import PrivateRoute from "./PriviteRoute/PriviteRoute";
 import UserManagment from "../pages/Dashboard/Admin/UserManagment/UserManagment";
 import ManageBook from "../pages/Dashboard/Admin/ManegeBook/ManegeBook";
+import Orders from "../pages/Dashboard/Orders/Orders";
+import Invoices from "../pages/Dashboard/Invoices/Invoices";
+import StataticDashboard from "../pages/Dashboard/Dashboard/StataticDashboard";
+import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -52,8 +56,20 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        index: true,
+        element: <StataticDashboard />,
+      },
+      {
         path: "my-orders",
         element: <MyOrders />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "invoices",
+        element: <Invoices />,
       },
       {
         path: "add-books",
@@ -64,12 +80,16 @@ export const router = createBrowserRouter([
         element: <MyBook />,
       },
       {
+        path: "orders",
+        element: <Orders />,
+      },
+      {
         path: "profile",
         element: <Profile />,
       },
       //===== admin=====//
       {
-        path: "user-manage",
+        path: "all-user",
         element: <UserManagment />,
       },
       {

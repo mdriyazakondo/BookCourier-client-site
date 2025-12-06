@@ -9,7 +9,7 @@ import Container from "../../../shared/Container/Container";
 const WhyChooseBookCourier = () => {
   return (
     <Container>
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 shadow bg-white">
         <div className=" px-4 text-center">
           <h2 className="text-4xl font-bold text-green-600 mb-4">
             Why Choose <span className="text-black">BookCourier</span>?
@@ -23,7 +23,7 @@ const WhyChooseBookCourier = () => {
             {/* Feature 1 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
               <FaShippingFast className="text-4xl text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Fast & Safe Delivery
               </h3>
               <p className="text-gray-500">
@@ -34,7 +34,9 @@ const WhyChooseBookCourier = () => {
             {/* Feature 2 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
               <FaBookOpen className="text-4xl text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Wide Collection</h3>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                Wide Collection
+              </h3>
               <p className="text-gray-500">
                 Thousands of books from all genres — choose your next read
                 easily.
@@ -44,7 +46,9 @@ const WhyChooseBookCourier = () => {
             {/* Feature 3 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
               <FaShieldAlt className="text-4xl text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Trusted Service</h3>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                Trusted Service
+              </h3>
               <p className="text-gray-500">
                 Safe payment, verified books, and authentic quality — always.
               </p>
@@ -53,7 +57,7 @@ const WhyChooseBookCourier = () => {
             {/* Feature 4 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
               <FaSmile className="text-4xl text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Customer Satisfaction
               </h3>
               <p className="text-gray-500">
