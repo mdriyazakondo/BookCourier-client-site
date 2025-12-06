@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import Loading from "../../shared/Loading/Loading";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
+  const { user } = useAuth();
   const { id } = useParams();
 
   const { data: book = {}, isLoading } = useQuery({
@@ -17,6 +19,52 @@ const BookDetails = () => {
     },
   });
 
+  const handleOrder = async (book) => {
+    const { bookTitle, authorName, price } = book;
+
+    const bookOrderData = {
+      name: bookTitle,
+      authorName,
+      price,
+      customerName: user?.displayName,
+      customerEmail: user?.email,
+      quantity: 1,
+    };
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to place this order?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Order it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await axios.post(
+            `${import.meta.env.VITE_API_URL}/orders`,
+            bookOrderData
+          );
+
+          if (res.data?.insertedId) {
+            Swal.fire({
+              title: "Order Placed!",
+              text: "Your order has been saved successfully.",
+              icon: "success",
+            });
+          }
+        } catch (error) {
+          Swal.fire({
+            title: "Error!",
+            text: "Failed to place the order.",
+            icon: "error",
+          });
+        }
+      }
+    });
+  };
+
   if (isLoading) return <Loading />;
 
   const {
@@ -24,7 +72,6 @@ const BookDetails = () => {
     authorName,
     isbn,
     publisher,
-    publishedYear,
     pageNumber,
     language,
     genre,
@@ -107,7 +154,10 @@ const BookDetails = () => {
               </span>
             </div>
 
-            <button className="w-full mt-5 cursor-pointer bg-green-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
+            <button
+              onClick={() => handleOrder(book)}
+              className="w-full mt-5 cursor-pointer bg-green-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
+            >
               Order Now
             </button>
           </div>
