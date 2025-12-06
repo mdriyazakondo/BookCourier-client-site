@@ -157,6 +157,17 @@ const DashboardLayout = () => {
                     <span>User Manage</span>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/dashboard/manage-book"
+                    className={`flex items-center gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/dashboard/manage-book"
+                    )}`}
+                  >
+                    <FiHome className="text-lg" />
+                    <span>Manage Book</span>
+                  </Link>
+                </li>
               </div>
 
               {/* Profile */}

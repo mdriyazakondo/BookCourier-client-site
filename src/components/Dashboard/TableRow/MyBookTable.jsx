@@ -19,7 +19,7 @@ const MyBookTable = ({ book, handleDelete, handleUpdate }) => {
         <p className="text-gray-900 ">{new Date(create_date).toDateString()}</p>
       </td>
       <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{price}</p>
+        <p className="text-gray-900 ">${price}</p>
       </td>
       <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
         <p className="text-gray-900 ">{language}</p>

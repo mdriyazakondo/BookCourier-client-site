@@ -13,6 +13,7 @@ import ErrorPage from "../shared/Error/ErrorPage";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import PrivateRoute from "./PriviteRoute/PriviteRoute";
 import UserManagment from "../pages/Dashboard/Admin/UserManagment/UserManagment";
+import ManageBook from "../pages/Dashboard/Admin/ManegeBook/ManegeBook";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "user-manage",
         element: <UserManagment />,
+      },
+      {
+        path: "manage-book",
+        element: <ManageBook />,
       },
     ],
   },
