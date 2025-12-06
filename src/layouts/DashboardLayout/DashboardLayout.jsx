@@ -1,11 +1,15 @@
 import React from "react";
-import { Link, Outlet, useLocation } from "react-router";
-import { FiHome, FiSettings, FiMenu, FiSun, FiMoon } from "react-icons/fi";
+import { Link, Outlet, useLocation, useNavigate } from "react-router";
+import { FiHome, FiMenu, FiSun, FiMoon } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
+  const { user, logoutUserFunc, loading } = useAuth();
+  const navigate = useNavigate();
 
   // Active Link Checker
   const isActive = (path) =>
@@ -30,6 +34,38 @@ const DashboardLayout = () => {
 
   // Toggle Theme
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+
+  //======== user logout =========
+  const handleLogout = async () => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout!",
+    });
+    if (!confirm.isConfirmed) return;
+    try {
+      await logoutUserFunc();
+      Swal.fire({
+        title: "Logout Successful",
+        text: "You have been logged out",
+        icon: "success",
+        confirmButtonColor: "#22c55e",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Logout Failed",
+        text: error.message || "Something went wrong",
+        icon: "error",
+        confirmButtonColor: "#ef4444",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-green-50 dark:bg-gray-900 dark:text-white">
@@ -124,7 +160,10 @@ const DashboardLayout = () => {
 
               {/* Logout */}
               <li>
-                <button className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-green-200 dark:hover:bg-red-600 dark:text-white text-green-700 transition">
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-green-200 dark:hover:bg-red-600 dark:text-white text-green-700 transition"
+                >
                   <MdLogout className="text-lg" />
                   <span>Logout</span>
                 </button>

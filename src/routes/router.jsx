@@ -11,6 +11,7 @@ import BookDetails from "../pages/BookDetails/BookDetails";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import ErrorPage from "../shared/Error/ErrorPage";
 import Profile from "../pages/Dashboard/Profile/Profile";
+import PrivateRoute from "./PriviteRoute/PriviteRoute";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "my-orders",
