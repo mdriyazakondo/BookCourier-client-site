@@ -23,6 +23,10 @@ const BookDetails = () => {
   const handleOrder = async (book) => {
     const { bookTitle, authorName, price, authorEmail, image } = book;
 
+    if (!user) {
+      return navigate("/login");
+    }
+
     const bookOrderData = {
       image,
       name: bookTitle,
