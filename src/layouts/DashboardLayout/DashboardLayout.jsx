@@ -69,8 +69,8 @@ const DashboardLayout = () => {
               <FiMenu className="text-xl" />
             </label>
 
-            <h2 className="text-xl font-semibold text-green-500">
-              <Link to="/">Dashboard</Link>
+            <h2 className="text-2xl font-bold text-green-500">
+              <Link to="/">Book Courier</Link>
             </h2>
           </nav>
 
@@ -96,6 +96,17 @@ const DashboardLayout = () => {
                   >
                     <MdDashboard className="text-lg" />
                     <span>Dashboard</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                      "/"
+                    )}`}
+                  >
+                    <FiHome className="text-lg" />
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li>

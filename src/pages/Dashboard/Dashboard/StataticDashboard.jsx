@@ -32,7 +32,7 @@ const chartData = [
 ];
 
 const Dashboard = () => {
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   return (
     <div
