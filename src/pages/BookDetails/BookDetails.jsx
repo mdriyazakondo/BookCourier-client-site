@@ -21,9 +21,10 @@ const BookDetails = () => {
   });
 
   const handleOrder = async (book) => {
-    const { bookTitle, authorName, price, authorEmail } = book;
+    const { bookTitle, authorName, price, authorEmail, image } = book;
 
     const bookOrderData = {
+      image,
       name: bookTitle,
       authorName,
       authorEmail,

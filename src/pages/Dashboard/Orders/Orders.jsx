@@ -3,6 +3,7 @@ import Loading from "../../../shared/Loading/Loading";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
+import OrderTable from "../../../components/Dashboard/OrderTable/OrderTable";
 
 const Orders = () => {
   const { user } = useAuth();
@@ -11,24 +12,15 @@ const Orders = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["orderPayments"],
+    queryKey: ["orderPayments", user.email],
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/orders`);
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/orders/${user?.email}/payments`
+      );
       return res.data;
     },
   });
-  // {
-  //     _id: '6934c8543fb24273dda233e5',
-  //     name: 'Sint eius itaque lab',
-  //     authorName: 'Chastity Zimmerman',
-  //     price: '583',
-  //     customerName: 'MD RIYAZ AKONDA',
-  //     customerEmail: 'mdriyazakonda@gmail.com',
-  //     quantity: 0,
-  //     status: 'pending',
-  //     paymentStatus: 'paid',
-  //     order_date: '2025-12-07T00:20:36.725Z'
-  //   }
+
   if (isLoading) return <Loading />;
   return (
     <div>
@@ -86,16 +78,17 @@ const Orders = () => {
                     >
                       Status
                     </th>
-
-                    <th
-                      scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
-                    >
-                      Action
-                    </th>
                   </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                  {orderPayments?.map((orderPayment) => (
+                    <OrderTable
+                      key={orderPayment._id}
+                      orderPayment={orderPayment}
+                      refetch={refetch}
+                    />
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
