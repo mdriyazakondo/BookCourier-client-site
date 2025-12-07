@@ -31,6 +31,9 @@ const Navbar = () => {
       <li className={`${isActive("/all-books")} ml-2`}>
         <Link to="/all-books">All Books</Link>
       </li>
+      <li className={`${isActive("/contacts")} ml-2`}>
+        <Link to="/contacts">Contact Us</Link>
+      </li>
 
       <li className={`${isActive("/dashboard")} ml-2`}>
         <Link to="/dashboard">Dashboard</Link>

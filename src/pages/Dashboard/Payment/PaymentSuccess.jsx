@@ -1,12 +1,13 @@
-import React from "react";
-import { useEffect } from "react";
-import { useSearchParams } from "react-router";
+import React, { useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// tailwind heroicon
 
 const PaymentSuccess = () => {
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (sessionId) {
@@ -17,9 +18,25 @@ const PaymentSuccess = () => {
         });
     }
   }, [sessionId]);
+
   return (
-    <div>
-      <h3>Book Order Payment Success: {sessionId}</h3>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full text-center">
+        {/* <CheckCircleIcon className="h-20 w-20 text-green-500 mx-auto mb-4" /> */}
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          Payment Successful!
+        </h2>
+        <p className="text-gray-600 mb-4">
+          Your book order has been successfully placed.
+        </p>
+
+        <button
+          onClick={() => navigate("/dashboard/invoices")}
+          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+        >
+          Go to Invoices
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,8 @@
+import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import axios from "axios";
 
-const OrderTableRow = ({ order }) => {
+const OrderTableRow = ({ order, refetch }) => {
   const axiosSecure = useAxiosSecure();
   const {
     _id,
@@ -16,6 +18,47 @@ const OrderTableRow = ({ order }) => {
     image,
     description,
   } = order;
+
+  const handleCencelled = async (order) => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to cancel this order?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, cancel it!",
+      cancelButtonText: "No",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    const cancelledStatus = { status: "cancelled" };
+
+    try {
+      const res = await axiosSecure.patch(
+        `/order-cancelled/${order._id}`,
+        cancelledStatus
+      );
+
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          title: "Cancelled!",
+          text: "Order has been cancelled successfully.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+        refetch();
+      }
+
+      return res.data;
+    } catch (err) {
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong.",
+        icon: "error",
+      });
+    }
+  };
 
   const handlePayment = async (payment) => {
     const paymentInfo = {
@@ -71,7 +114,7 @@ const OrderTableRow = ({ order }) => {
       >
         <span
           className={`${
-            status === "pending"
+            status === "pending" || status === "cancelled"
               ? "text-red-500 bg-red-100 "
               : "text-green-500 bg-green-100  "
           } py-1 px-3 rounded-full`}
@@ -97,14 +140,15 @@ const OrderTableRow = ({ order }) => {
       {/* Actions */}
       <td className="py-2 px-4  text-center text-sm text-nowrap">
         <button
-          disabled={paymentStatus === "paid"}
+          disabled={paymentStatus === "paid" || status === "cancelled"}
           onClick={() => handlePayment(order)}
           className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
         >
           Pay
         </button>
         <button
-          disabled={paymentStatus === "paid"}
+          onClick={() => handleCencelled(order)}
+          disabled={paymentStatus === "paid" || status === "cancelled"}
           className="bg-red-500 text-white py-1 px-4 rounded-sm cursor-pointer ml-2"
         >
           Cancelled

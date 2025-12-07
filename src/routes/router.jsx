@@ -21,6 +21,7 @@ import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
 import AdminRoute from "./PriviteRoute/AdminRoute";
 import LibrarianRoute from "./PriviteRoute/LibrarianRoute";
 import CustomerRoute from "./PriviteRoute/CustomerRoute";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/books/:id",
         element: <BookDetails />,
+      },
+      {
+        path: "/contacts",
+        element: <Contact />,
       },
       {
         path: "login",

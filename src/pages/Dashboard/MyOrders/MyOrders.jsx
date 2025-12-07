@@ -100,7 +100,11 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                   {orders?.map((order) => (
-                    <OrderTableRow order={order} key={order._id} />
+                    <OrderTableRow
+                      order={order}
+                      key={order._id}
+                      refetch={refetch}
+                    />
                   ))}
                 </tbody>
               </table>

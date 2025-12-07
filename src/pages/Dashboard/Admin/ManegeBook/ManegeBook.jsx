@@ -11,9 +11,9 @@ const ManageBook = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["books"],
+    queryKey: ["mange-books"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/books`);
+      const res = await axiosSecure.get(`/mange-books`);
       return res.data;
     },
   });
