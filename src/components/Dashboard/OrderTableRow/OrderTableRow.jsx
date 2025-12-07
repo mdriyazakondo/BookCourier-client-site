@@ -1,7 +1,7 @@
-import axios from "axios";
-import React from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const OrderTableRow = ({ order }) => {
+  const axiosSecure = useAxiosSecure();
   const {
     _id,
     name,
@@ -24,10 +24,7 @@ const OrderTableRow = ({ order }) => {
       _id: payment._id,
       name: payment.name,
     };
-    const res = await axios.post(
-      `${import.meta.env.VITE_API_URL}/create-checkout-session`,
-      paymentInfo
-    );
+    const res = await axiosSecure.post(`/create-checkout-session`, paymentInfo);
     console.log(res.data);
     return (window.location.href = res.data.url);
   };

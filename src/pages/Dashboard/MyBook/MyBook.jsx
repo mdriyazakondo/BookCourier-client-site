@@ -1,20 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import MyBookTable from "../../../components/Dashboard/TableRow/MyBookTable";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import Loading from "../../../shared/Loading/Loading";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyBook = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const {
     data: books = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["books"],
+    queryKey: ["my-books", user?.email],
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/books`);
+      const res = await axiosSecure.get(`/my-books/${user?.email}`);
       return res.data;
     },
   });
@@ -34,9 +35,7 @@ const MyBook = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/books/${id}`
-      );
+      const res = await axiosSecure.delete(`/books/${id}`);
 
       if (res.data.deletedCount > 0) {
         Swal.fire("Deleted!", "Book has been removed.", "success");

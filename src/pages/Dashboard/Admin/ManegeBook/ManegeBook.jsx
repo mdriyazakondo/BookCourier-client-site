@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Swal from "sweetalert2";
 import ManageBookTable from "../../../../components/Dashboard/ManageBookTable/ManageBookTable";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Loading from "../../../../shared/Loading/Loading";
 
 const ManageBook = () => {
+  const axiosSecure = useAxiosSecure();
   const {
     data: books = [],
     isLoading,
@@ -11,7 +13,7 @@ const ManageBook = () => {
   } = useQuery({
     queryKey: ["books"],
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/books`);
+      const res = await axiosSecure.get(`/books`);
       return res.data;
     },
   });
@@ -27,9 +29,7 @@ const ManageBook = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/books/${id}`
-      );
+      const res = await axiosSecure.delete(`/books/${id}`);
 
       if (res.data.deletedCount > 0) {
         Swal.fire("Deleted!", "Book has been removed.", "success");
@@ -40,6 +40,7 @@ const ManageBook = () => {
     }
   };
 
+  if (isLoading) return <Loading />;
   return (
     <div>
       <h2 className="text-center text-3xl md:text-4xl font-bold text-green-500">

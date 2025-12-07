@@ -1,12 +1,13 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import axios from "axios";
 import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UpdateRoleModal = ({ isOpen, closeModal, user, refetch }) => {
   const [updatedRole, setUpdatedRole] = useState(user?.role);
+  const axiosSecure = useAxiosSecure();
   const handleUpdateRole = async () => {
     try {
-      await axios.patch(`${import.meta.env.VITE_API_URL}/user-role`, {
+      await axiosSecure.patch(`/user-role`, {
         email: user?.email,
         role: updatedRole,
       });

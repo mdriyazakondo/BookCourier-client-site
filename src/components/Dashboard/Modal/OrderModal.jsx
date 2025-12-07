@@ -1,10 +1,11 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const OrderModal = ({ isOpen, closeModal, orderPayment, refetch }) => {
   const [updatedStatus, setUpdatedStatus] = useState("");
+  const axiosSecure = useAxiosSecure();
 
   const handleUpdateStatus = async () => {
     if (!updatedStatus) {
@@ -24,10 +25,9 @@ const OrderModal = ({ isOpen, closeModal, orderPayment, refetch }) => {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await axios.patch(
-        `${import.meta.env.VITE_API_URL}/order/${orderPayment._id}`,
-        { status: updatedStatus }
-      );
+      const res = await axiosSecure.patch(`/order/${orderPayment._id}`, {
+        status: updatedStatus,
+      });
 
       if (res.data.modifiedCount > 0) {
         Swal.fire("Updated!", "Book status updated successfully.", "success");

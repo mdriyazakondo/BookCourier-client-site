@@ -5,13 +5,14 @@ import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { imageUpload } from "../../utils";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
   const { createUserFunc } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -32,7 +33,7 @@ const Register = () => {
         photoURL: images,
       });
 
-      await axios.post("http://localhost:3000/users", userData);
+      await axiosSecure.post("/users", userData);
 
       Swal.fire({
         title: `Welcome ${user.displayName}!`,

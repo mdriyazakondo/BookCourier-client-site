@@ -1,4 +1,3 @@
-import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../shared/Loading/Loading";
@@ -9,9 +8,11 @@ import { IoIosPhotos } from "react-icons/io";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Profile = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const [isProfile, setIsProfile] = useState(false);
   const {
     data: userInfo = {},
@@ -21,9 +22,7 @@ const Profile = () => {
     queryKey: ["user-info", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/users/${user.email}`
-      );
+      const { data } = await axiosSecure.get(`/users/${user.email}`);
       return data;
     },
   });
@@ -55,10 +54,7 @@ const Profile = () => {
         image: imageURL,
       };
 
-      const res = await axios.patch(
-        `${import.meta.env.VITE_API_URL}/users/${userInfo._id}`,
-        updateData
-      );
+      const res = await axiosSecure.patch(`/users/${userInfo._id}`, updateData);
 
       if (res.data.modifiedCount > 0) {
         Swal.fire({

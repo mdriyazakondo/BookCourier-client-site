@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const { loginUserFunc } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -19,7 +20,7 @@ const Login = () => {
       const user = result.user;
 
       // Optional: save login info Riyaz111
-      await axios.post(`${import.meta.env.VITE_API_URL}/users`, {
+      await axiosSecure.post(`/users`, {
         email: data.email,
       });
 

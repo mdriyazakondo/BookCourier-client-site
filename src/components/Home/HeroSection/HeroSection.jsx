@@ -6,13 +6,14 @@ import Container from "../../../shared/Container/Container";
 import Loading from "../../../shared/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const HeroSection = () => {
+  const axiosSecure = useAxiosSecure();
   const { data: sliders = [], isLoading } = useQuery({
     queryKey: ["latest"],
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/latest`);
+      const res = await axiosSecure.get(`/latest`);
       return res.data;
     },
   });

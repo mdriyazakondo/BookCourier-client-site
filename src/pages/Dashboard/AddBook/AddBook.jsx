@@ -13,12 +13,14 @@ import {
 } from "react-icons/fa";
 import { imageUpload } from "../../../utils";
 import Swal from "sweetalert2";
-import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AddBook = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
+
   const handleBookAdd = async (data) => {
     const {
       bookTitle,
@@ -62,7 +64,7 @@ const AddBook = () => {
         description,
         image,
       };
-      await axios.post("http://localhost:3000/books", bookData);
+      await axiosSecure.post("/books", bookData);
       Swal.fire({
         title: `New Book added!`,
         text: "New Book Added successful",

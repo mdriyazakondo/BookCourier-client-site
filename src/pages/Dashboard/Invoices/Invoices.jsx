@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
 import Loading from "../../../shared/Loading/Loading";
 import InvoicesTable from "../../../components/Dashboard/Invoices/InvoicesTable";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Invoices = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const {
     data: payments = [],
     isLoading,
@@ -13,24 +14,12 @@ const Invoices = () => {
   } = useQuery({
     queryKey: ["payments", user?.email],
     queryFn: async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/payments/${user?.email}`
-      );
+      const res = await axiosSecure.get(`/payments/${user?.email}`);
       return res.data;
     },
   });
   if (isLoading) return <Loading />;
-  //  {
-  //       _id: '6934bad51e2691f074622e41',
-  //       orderId: '6934ba891e2691f074622e40',
-  //       transationId: 'pi_3SbUoX2OTEi9mGRa1j6EUmOX',
-  //       bookName: 'Sint eius itaque lab',
-  //       customer_email: 'mdriyazakonda@gmail.com',
-  //       customer_name: 'MD RIYAZ AKONDA',
-  //       payment_date: '20
-  //       status: '20
 
-  //     },
   return (
     <div>
       <div>

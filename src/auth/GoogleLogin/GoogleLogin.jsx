@@ -1,11 +1,12 @@
 import { FaGoogle } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const GoogleLogin = () => {
   const { googleUserFunc } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -19,7 +20,7 @@ const GoogleLogin = () => {
         email: user.email,
         image: user.photoURL,
       };
-      await axios.post(`http://localhost:3000/users`, userData);
+      await axiosSecure.post(`/users`, userData);
       Swal.fire({
         title: `Welcome ${user.displayName}!`,
         text: "Login successful",

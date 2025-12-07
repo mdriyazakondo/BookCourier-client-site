@@ -1,21 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router";
-import axios from "axios";
 import Loading from "../../shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BookDetails = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { data: book = {}, isLoading } = useQuery({
     queryKey: ["book", id],
     queryFn: async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/books/${id}`
-      );
+      const res = await axiosSecure.get(`/books/${id}`);
       return res.data;
     },
   });
@@ -49,10 +48,7 @@ const BookDetails = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.post(
-            `${import.meta.env.VITE_API_URL}/orders`,
-            bookOrderData
-          );
+          const res = await axiosSecure.post(`/orders`, bookOrderData);
 
           if (res.data?.insertedId) {
             Swal.fire({

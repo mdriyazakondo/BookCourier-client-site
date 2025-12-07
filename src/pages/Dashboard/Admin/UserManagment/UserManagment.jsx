@@ -1,12 +1,13 @@
 import React from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Loading from "../../../../shared/Loading/Loading";
 import UserDataRow from "../../../../components/Dashboard/UserDataRow/UserDataRow";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const UserManagment = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const {
     data: allUsers = [],
     isLoading,
@@ -14,9 +15,7 @@ const UserManagment = () => {
   } = useQuery({
     queryKey: ["all-user", user?.email],
     queryFn: async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/all-users/${user.email}`
-      );
+      const res = await axiosSecure.get(`/all-users/${user.email}`);
       return res.data;
     },
   });

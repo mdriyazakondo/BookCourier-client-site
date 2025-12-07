@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import Container from "../../../shared/Container/Container";
-import axios from "axios";
 import BookCard from "../../../shared/BookCard/BookCard";
 import Loading from "../../../shared/Loading/Loading";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Latest = () => {
+  const axiosSecure = useAxiosSecure();
   const {
     data: latests = [],
     isLoading,
@@ -13,7 +14,7 @@ const Latest = () => {
   } = useQuery({
     queryKey: ["latest"],
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/latest`);
+      const res = await axiosSecure.get(`/latest`);
       return res.data;
     },
   });
