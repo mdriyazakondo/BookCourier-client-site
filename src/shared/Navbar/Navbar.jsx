@@ -17,16 +17,6 @@ const Navbar = () => {
     () => localStorage.getItem("theme") || "light"
   );
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
-  // ------------------------------------------------
-
   const isActive = (path) =>
     location.pathname === path
       ? "bg-green-500 text-white rounded-sm"
@@ -126,14 +116,6 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="navbar-end flex items-center gap-4">
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition dark:text-white "
-          >
-            {theme === "light" ? <FiMoon size={20} /> : <FiSun size={20} />}
-          </button>
-
           {user ? (
             <button
               onClick={handleLogout}

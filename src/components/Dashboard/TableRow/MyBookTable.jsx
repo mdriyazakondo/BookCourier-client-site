@@ -1,52 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import BookModal from "../Modal/BookModal";
 
-const MyBookTable = ({ book, handleDelete, handleUpdate }) => {
+const MyBookTable = ({ book, handleDelete, refetch }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeModal = () => setIsOpen(false);
+
   const { bookTitle, authorName, language, price, status, image, create_date } =
     book;
+
   return (
     <tr>
-      <td className="py-2  border text-center border-gray-200 bg-white text-sm text-nowrap flex items-center justify-center">
+      <td className="py-2 border text-center bg-white">
         <img src={image} alt={bookTitle} className="w-16 h-10" />
       </td>
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{bookTitle}</p>
-      </td>
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{authorName}</p>
-      </td>
 
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{new Date(create_date).toDateString()}</p>
+      <td className="px-5 border text-center bg-white">{bookTitle}</td>
+      <td className="px-5 border text-center bg-white">{authorName}</td>
+      <td className="px-5 border text-center bg-white">
+        {new Date(create_date).toDateString()}
       </td>
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">${price}</p>
-      </td>
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap">
-        <p className="text-gray-900 ">{language}</p>
-      </td>
-      <td className="px-5 border text-center border-gray-200 bg-white text-sm">
-        <select
-          defaultValue={status}
-          onClick={() => handleUpdate(book._id)}
-          disabled={status === "published"}
-          className={`border rounded px-2 py-1 text-sm outline-none ${
-            status === "published" ? "text-green-600" : "text-red-600"
-          }`}
+      <td className="px-5 border text-center bg-white">${price}</td>
+      <td className="px-5 border text-center bg-white">{language}</td>
+
+      {/* Status Button */}
+      <td className="px-5 border text-center bg-white">
+        <span
+          onClick={() => setIsOpen(true)}
+          className="cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 relative"
         >
-          <option value="published">Published</option>
-          <option value="unpublished" disabled={status === "published"}>
-            Unpublished
-          </option>
-        </select>
+          <span className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+          <span className="relative">{status}</span>
+        </span>
+
+        {/* FIX: pass bookId */}
+        <BookModal
+          refetch={refetch}
+          isOpen={isOpen}
+          closeModal={closeModal}
+          bookId={book._id}
+        />
       </td>
 
-      <td className="px-5  border text-center border-gray-200 bg-white text-sm text-nowrap ">
-        <button className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap">
+      <td className="px-5 border text-center bg-white">
+        <button className="bg-green-500 text-white py-1 px-4 rounded-sm">
           Update Book
         </button>
+
         <button
           onClick={() => handleDelete(book._id)}
-          className="bg-red-500 text-white py-1 px-4 rounded-sm cursor-pointer ml-2"
+          className="bg-red-500 text-white py-1 px-4 rounded-sm ml-2"
         >
           Delete Book
         </button>

@@ -48,37 +48,6 @@ const MyBook = () => {
     }
   };
 
-  const handleUpdate = async (id, refetch) => {
-    const updateStatus = "published";
-
-    const confirm = await Swal.fire({
-      title: "Are you sure?",
-      text: "Do you want to publish this book?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, publish it!",
-    });
-
-    if (!confirm.isConfirmed) return;
-
-    try {
-      const res = await axios.patch(
-        `${import.meta.env.VITE_API_URL}/books/${id}`,
-        { status: updateStatus }
-      );
-
-      if (res.data.modifiedCount > 0) {
-        Swal.fire("Updated!", "Book status has been updated.", "success");
-        refetch();
-      }
-    } catch (error) {
-      Swal.fire("Error!", "Something went wrong.", "error");
-      console.error(error);
-    }
-  };
-
   // const bookData = {
   //   bookTitle,
   //   authorName,
@@ -168,8 +137,8 @@ const MyBook = () => {
                     <MyBookTable
                       key={book._id}
                       book={book}
+                      refetch={refetch}
                       handleDelete={(id) => handleDelete(id, refetch)}
-                      handleUpdate={(id) => handleUpdate(id, refetch)}
                     />
                   ))}
                 </tbody>

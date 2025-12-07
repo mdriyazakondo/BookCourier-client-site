@@ -17,32 +17,22 @@ const InvoicesTable = ({ order }) => {
   } = order;
   return (
     <tr className="bg-white border-b border-gray-400 text-gray-700">
-      {/* Customer Name */}
       <td className="py-2 px-4  border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {bookName}
       </td>
 
-      {/* Book / Product Name */}
       <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {customer_name}
       </td>
 
-      {/* Author Name */}
       <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {customer_email}
       </td>
 
-      {/* Customer Email */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
-        {price}
-      </td>
-
-      {/* transationId */}
       <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {transationId}
       </td>
 
-      {/* Status */}
       <td
         className={`py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap `}
       >
@@ -58,12 +48,10 @@ const InvoicesTable = ({ order }) => {
         </span>
       </td>
 
-      {/* Price */}
       <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         ${price}
       </td>
 
-      {/* Order Date */}
       <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
         {new Date(payment_date).toDateString()}
       </td>
