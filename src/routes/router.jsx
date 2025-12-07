@@ -18,6 +18,9 @@ import Orders from "../pages/Dashboard/Orders/Orders";
 import Invoices from "../pages/Dashboard/Invoices/Invoices";
 import StataticDashboard from "../pages/Dashboard/Dashboard/StataticDashboard";
 import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
+import AdminRoute from "./PriviteRoute/AdminRoute";
+import LibrarianRoute from "./PriviteRoute/LibrarianRoute";
+import CustomerRoute from "./PriviteRoute/CustomerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -61,27 +64,51 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-orders",
-        element: <MyOrders />,
+        element: (
+          <CustomerRoute>
+            <MyOrders />
+          </CustomerRoute>
+        ),
       },
       {
         path: "payment-success",
-        element: <PaymentSuccess />,
+        element: (
+          <CustomerRoute>
+            <PaymentSuccess />
+          </CustomerRoute>
+        ),
       },
       {
         path: "invoices",
-        element: <Invoices />,
+        element: (
+          <CustomerRoute>
+            <Invoices />
+          </CustomerRoute>
+        ),
       },
       {
         path: "add-books",
-        element: <AddBook />,
+        element: (
+          <LibrarianRoute>
+            <AddBook />
+          </LibrarianRoute>
+        ),
       },
       {
         path: "my-books",
-        element: <MyBook />,
+        element: (
+          <LibrarianRoute>
+            <MyBook />
+          </LibrarianRoute>
+        ),
       },
       {
         path: "orders",
-        element: <Orders />,
+        element: (
+          <LibrarianRoute>
+            <Orders />
+          </LibrarianRoute>
+        ),
       },
       {
         path: "profile",
@@ -90,11 +117,19 @@ export const router = createBrowserRouter([
       //===== admin=====//
       {
         path: "all-user",
-        element: <UserManagment />,
+        element: (
+          <AdminRoute>
+            <UserManagment />
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-book",
-        element: <ManageBook />,
+        element: (
+          <AdminRoute>
+            <ManageBook />
+          </AdminRoute>
+        ),
       },
     ],
   },

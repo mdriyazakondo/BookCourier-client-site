@@ -10,19 +10,19 @@ import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { SiWikibooks } from "react-icons/si";
 import { BsBorderStyle } from "react-icons/bs";
 import { GrUserManager } from "react-icons/gr";
+import useRole from "../../hooks/useRole";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
   const { user, logoutUserFunc, loading } = useAuth();
   const navigate = useNavigate();
+  const [role] = useRole();
 
-  // Active Link Checker
   const isActive = (path) =>
     pathname === path
       ? "bg-green-200 dark:bg-green-700 text-green-700 dark:text-white font-semibold"
       : "hover:bg-green-100 dark:hover:bg-gray-700";
 
-  //======== user logout =========
   const handleLogout = async () => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
@@ -87,17 +87,7 @@ const DashboardLayout = () => {
             <ul className="menu text-base flex-1 dark:text-gray-200">
               <div className="min-h-[85vh] ">
                 {/* Home */}
-                <li>
-                  <Link
-                    to="/dashboard"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard"
-                    )}`}
-                  >
-                    <MdDashboard className="text-lg" />
-                    <span>Dashboard</span>
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     to="/"
@@ -111,83 +101,108 @@ const DashboardLayout = () => {
                 </li>
                 <li>
                   <Link
-                    to="/dashboard/my-orders"
+                    to="/dashboard"
                     className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/my-orders"
+                      "/dashboard"
                     )}`}
                   >
-                    <FaJediOrder className="text-lg" />
-                    <span>My Orders</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/invoices"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/invoices"
-                    )}`}
-                  >
-                    <LiaFileInvoiceSolid className="text-lg" />
-                    <span>Invoices</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/add-books"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/add-books"
-                    )}`}
-                  >
-                    <FaBook className="text-lg" />
-                    <span>Add Book</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/my-books"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/my-books"
-                    )}`}
-                  >
-                    <SiWikibooks className="text-lg" />
-                    <span>My Books</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/orders"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/orders"
-                    )}`}
-                  >
-                    <BsBorderStyle className="text-lg" />
-                    <span>Orders</span>
+                    <MdDashboard className="text-lg" />
+                    <span>Dashboard</span>
                   </Link>
                 </li>
 
+                {role === "customer" && (
+                  <>
+                    <li>
+                      <Link
+                        to="/dashboard/my-orders"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/my-orders"
+                        )}`}
+                      >
+                        <FaJediOrder className="text-lg" />
+                        <span>My Orders</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/invoices"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/invoices"
+                        )}`}
+                      >
+                        <LiaFileInvoiceSolid className="text-lg" />
+                        <span>Invoices</span>
+                      </Link>
+                    </li>
+                  </>
+                )}
+
+                {role === "Librarian" && (
+                  <>
+                    <li>
+                      <Link
+                        to="/dashboard/add-books"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/add-books"
+                        )}`}
+                      >
+                        <FaBook className="text-lg" />
+                        <span>Add Book</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/my-books"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/my-books"
+                        )}`}
+                      >
+                        <SiWikibooks className="text-lg" />
+                        <span>My Books</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/orders"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/orders"
+                        )}`}
+                      >
+                        <BsBorderStyle className="text-lg" />
+                        <span>Orders</span>
+                      </Link>
+                    </li>
+                  </>
+                )}
+
                 {/* Admin */}
-                <li>
-                  <Link
-                    to="/dashboard/all-user"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/all-user"
-                    )}`}
-                  >
-                    <GrUserManager className="text-lg" />
-                    <span>All User</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/manage-book"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
-                      "/dashboard/manage-book"
-                    )}`}
-                  >
-                    <FaBook className="text-lg" />
-                    <span>Manage Book</span>
-                  </Link>
-                </li>
+                {role === "admin" && (
+                  <>
+                    <li>
+                      <Link
+                        to="/dashboard/all-user"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/all-user"
+                        )}`}
+                      >
+                        <GrUserManager className="text-lg" />
+                        <span>All User</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/manage-book"
+                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/manage-book"
+                        )}`}
+                      >
+                        <FaBook className="text-lg" />
+                        <span>Manage Book</span>
+                      </Link>
+                    </li>
+                  </>
+                )}
               </div>
 
               {/* Profile */}
