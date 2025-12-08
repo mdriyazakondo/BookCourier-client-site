@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 const axiosInstance = axios.create({
   // baseURL: "http://localhost:3000",
-  baseURL: "http://server-pi-mocha.vercel.app",
+  baseURL: "https://server-pi-mocha.vercel.app",
   withCredentials: true,
 });
 
