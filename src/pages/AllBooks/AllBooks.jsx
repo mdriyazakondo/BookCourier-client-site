@@ -23,7 +23,7 @@ const AllBooks = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 8;
 
-  // if (isLoading) return <Loading />;
+  if (isLoading) return <Loading />;
 
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
