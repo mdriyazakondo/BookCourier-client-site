@@ -7,10 +7,15 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllBooks = () => {
   const axiosSecure = useAxiosSecure();
+  const [searBook, setSearchBook] = useState("");
+  const [sortBook, setSortBook] = useState("");
+
   const { data: books = [], isLoading } = useQuery({
-    queryKey: ["books"],
+    queryKey: ["books", searBook, sortBook],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/books`);
+      const res = await axiosSecure.get(
+        `/books?sort=${sortBook}&&search=${searBook}`
+      );
       return res.data;
     },
   });
@@ -18,9 +23,8 @@ const AllBooks = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 8;
 
-  if (isLoading) return <Loading />;
+  // if (isLoading) return <Loading />;
 
-  // Pagination Logic
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
@@ -33,7 +37,34 @@ const AllBooks = () => {
         <h2 className="text-4xl font-bold text-green-500 text-center mb-4">
           All Books
         </h2>
+        <div className="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 ">
+          {/* Search Input */}
+          <div className="w-full md:w-1/2">
+            <input
+              type="text"
+              value={searBook}
+              onChange={(e) => setSearchBook(e.target.value)}
+              placeholder="Search Book..."
+              className="w-full py-3 pl-4 pr-4 border rounded-sm shadow-sm outline-none border-green-400"
+            />
+          </div>
 
+          {/* Sort Dropdown */}
+          <div className="relative w-full md:w-1/10">
+            <select
+              onChange={(e) => setSortBook(e.target.value)}
+              value={sortBook}
+              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm  outline-none border-green-400 "
+            >
+              <option disabled selected>
+                Sort By Price
+              </option>
+              <option value="normal">Normal</option>
+              <option value="low-high">Low → High</option>
+              <option value="high-low">High → Low</option>
+            </select>
+          </div>
+        </div>
         {/* Books Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {currentBooks.map((latest) => (
