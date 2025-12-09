@@ -24,7 +24,7 @@ const Invoices = () => {
     <div>
       <div>
         <h2 className="text-center text-3xl md:text-4xl font-bold text-purple-500">
-          My All Books
+          My All Orders
         </h2>
         <div className=" px-4 sm:px-8">
           <div className="pb-8 pt-2">

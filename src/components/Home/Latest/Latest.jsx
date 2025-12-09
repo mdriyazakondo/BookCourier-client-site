@@ -27,8 +27,8 @@ const Latest = () => {
           Latest And Populer Books
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {latests?.map((latest) => (
-            <BookCard key={latest?._id} latest={latest} />
+          {latests?.map((latest, index) => (
+            <BookCard key={index} latest={latest} />
           ))}
         </div>
       </div>

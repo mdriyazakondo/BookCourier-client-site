@@ -21,6 +21,8 @@ const BookDetails = () => {
 
   const handleOrder = async (book) => {
     const { bookName, authorName, price, authorEmail, image } = book;
+    // console.log(bookName);
+    // return;
 
     if (!user) {
       return navigate("/login");
@@ -105,7 +107,9 @@ const BookDetails = () => {
           {/* Right Side — Large Image */}
           <div className="p-8 space-y-4 bg-purple-50 rounded-l-xl">
             <h1 className="text-3xl font-bold text-purple-700">{bookName}</h1>
-            <p className="text-lg text-purple-600 mb-2"><span className="font-semibold">By:</span> {authorName}</p>
+            <p className="text-lg text-purple-600 mb-2">
+              <span className="font-semibold">By:</span> {authorName}
+            </p>
 
             <div className="grid grid-cols-2 gap-3 text-purple-800 text-sm">
               <p>

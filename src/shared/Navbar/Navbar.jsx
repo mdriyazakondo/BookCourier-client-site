@@ -41,7 +41,7 @@ const Navbar = () => {
     </>
   );
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
 
   const handleLogout = async () => {
     const confirm = await Swal.fire({
@@ -119,17 +119,25 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="navbar-end flex items-center gap-4">
-          {user ? (
-            <button
-              onClick={handleLogout}
-              className="py-2 px-4 bg-purple-500 text-white rounded-sm hover:bg-purple-600 transition"
-            >
-              Logout
-            </button>
+          {loading ? (
+            <div className="">
+              <div className="w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
           ) : (
             <>
-              <Button title={"Login"} links={"login"} />
-              <Button title={"Register"} links={"register"} />
+              {user ? (
+                <button
+                  onClick={handleLogout}
+                  className="py-2 px-4 bg-purple-500 text-white rounded-sm hover:bg-purple-600 transition"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Button title={"Login"} links={"login"} />
+                  <Button title={"Register"} links={"register"} />
+                </>
+              )}
             </>
           )}
         </div>

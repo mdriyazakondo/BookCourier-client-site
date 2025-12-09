@@ -69,6 +69,7 @@ export default function ServicesSection() {
               const Icon = s.icon;
               return (
                 <article
+                  key={idx}
                   transition={{ delay: idx * 0.08, duration: 0.45 }}
                   className="group bg-white border border-purple-100 hover:shadow-xl hover:-translate-y-1 transform transition-all rounded-2xl p-6 flex items-start gap-4"
                 >

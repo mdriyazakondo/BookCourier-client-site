@@ -1,6 +1,5 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import axios from "axios";
 
 const OrderTableRow = ({ order, refetch }) => {
   const axiosSecure = useAxiosSecure();
@@ -61,14 +60,15 @@ const OrderTableRow = ({ order, refetch }) => {
   };
 
   const handlePayment = async (payment) => {
+    console.log(payment);
     const paymentInfo = {
+      name: payment.name,
       price: payment.price,
       customerEmail: payment.customerEmail,
       _id: payment._id,
-      name: payment.name,
+      authorName: payment.authorName,
     };
     const res = await axiosSecure.post(`/create-checkout-session`, paymentInfo);
-    console.log(res.data);
     return (window.location.href = res.data.url);
   };
 
@@ -100,7 +100,7 @@ const OrderTableRow = ({ order, refetch }) => {
           className={`${
             paymentStatus === "unpaid"
               ? "text-red-500 bg-red-100 "
-              : "text-purple-500 bg-purple-100  "
+              : "text-green-500 bg-green-100  "
           } py-1 px-3 rounded-full`}
         >
           {" "}
@@ -116,7 +116,7 @@ const OrderTableRow = ({ order, refetch }) => {
           className={`${
             status === "pending" || status === "cancelled"
               ? "text-red-500 bg-red-100 "
-              : "text-purple-500 bg-purple-100  "
+              : "text-green-500 bg-green-100  "
           } py-1 px-3 rounded-full`}
         >
           {" "}
@@ -142,7 +142,7 @@ const OrderTableRow = ({ order, refetch }) => {
         <button
           disabled={paymentStatus === "paid" || status === "cancelled"}
           onClick={() => handlePayment(order)}
-          className="bg-purple-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
+          className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
         >
           Pay
         </button>

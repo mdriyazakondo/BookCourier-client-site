@@ -122,7 +122,7 @@ const Register = () => {
           </div>
 
           {/* Password */}
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label
               htmlFor="password"
               className="text-purple-700 font-semibold mb-1"
@@ -133,6 +133,35 @@ const Register = () => {
               <FaLock className="text-purple-500 mr-2" />
               <input
                 {...register("password", { required: true })}
+                type="password"
+                id="password"
+                placeholder="Password"
+                className="w-full outline-none bg-transparent"
+              />
+            </div>
+          </div> */}
+
+          <div className="flex flex-col">
+            <label
+              htmlFor="password"
+              className="text-purple-700 font-semibold mb-1"
+            >
+              Password
+            </label>
+
+            <div className="flex items-center border border-purple-300 rounded p-2 focus-within:ring-2 focus-within:ring-purple-400">
+              <FaLock className="text-purple-500 mr-2" />
+
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  pattern: {
+                    value:
+                      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                    message:
+                      "Password must contain 1 uppercase, 1 lowercase, 1 number & 1 special character",
+                  },
+                })}
                 type="password"
                 id="password"
                 placeholder="Password"
