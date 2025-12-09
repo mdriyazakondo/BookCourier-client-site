@@ -125,12 +125,21 @@ const Navbar = () => {
           ) : (
             <>
               {user ? (
-                <button
-                  onClick={handleLogout}
-                  className="py-2 px-4 bg-purple-500 text-white rounded-sm hover:bg-purple-600 transition"
-                >
-                  Logout
-                </button>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="py-2 px-4 bg-purple-500 text-white rounded-sm hover:bg-purple-600 transition"
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
                 <>
                   <Button title={"Login"} links={"login"} />
