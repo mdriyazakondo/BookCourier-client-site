@@ -55,7 +55,7 @@ export default function ServicesSection() {
       <section className="pt-14 bg-linear-to-b from-white to-purple-50">
         <div className="">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-purple-900">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-purple-600">
               Our Premium Services
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
