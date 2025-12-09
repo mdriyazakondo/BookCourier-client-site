@@ -21,13 +21,9 @@ const BookDetails = () => {
 
   const handleOrder = async (book) => {
     const { bookName, authorName, price, authorEmail, image } = book;
-    // console.log(bookName);
-    // return;
-
     if (!user) {
       return navigate("/login");
     }
-
     const bookOrderData = {
       image,
       name: bookName,
@@ -38,7 +34,6 @@ const BookDetails = () => {
       customerEmail: user?.email,
       quantity: 1,
     };
-
     Swal.fire({
       title: "Are you sure?",
       text: "Do you want to place this order?",
@@ -69,6 +64,45 @@ const BookDetails = () => {
         }
       }
     });
+  };
+
+  const handleWishList = async (books) => {
+    const bookWishListData = {
+      userEmail: user.email,
+      userName: user.displayName,
+      bookName: books.bookName,
+      image: books.image,
+      authorName: books.authorName,
+      authorEmail: books.authorEmail,
+    };
+
+    try {
+      const res = await axiosSecure.post(`/wish-list`, bookWishListData);
+
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Added!",
+          text: "Book added to your wishlist successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        navigate("/dashboard/wish-list");
+      } else {
+        Swal.fire({
+          title: "Already Added!",
+          text: "This book is already in your wishlist.",
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   if (isLoading) return <Loading />;
@@ -162,12 +196,20 @@ const BookDetails = () => {
               </span>
             </div>
 
-            <button
-              onClick={() => handleOrder(book)}
-              className="w-full mt-5 cursor-pointer bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
-            >
-              Order Now
-            </button>
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={() => handleOrder(book)}
+                className="w-full mt-5 cursor-pointer bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
+              >
+                Order Now
+              </button>{" "}
+              <button
+                onClick={() => handleWishList(book)}
+                className="w-full mt-5 cursor-pointer bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
+              >
+                Wish List
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -10,21 +10,30 @@ import { imageUpload } from "../../utils";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Register = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }, // ⬅️ FIXED: errors added here
+  } = useForm();
+
   const { createUserFunc } = useAuth();
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+
   const handleRegister = async (data) => {
     const imageFile = data.photo[0];
     const images = await imageUpload(imageFile);
+
     try {
       const userData = {
         name: data.name,
         email: data.email,
         image: images,
       };
+
       const result = await createUserFunc(data.email, data.password);
       const user = result.user;
 
@@ -41,6 +50,7 @@ const Register = () => {
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+
       navigate(from, { replace: true });
       reset();
     } catch (error) {
@@ -60,6 +70,7 @@ const Register = () => {
         <h2 className="text-3xl font-bold text-purple-800 mb-6 text-center">
           Register
         </h2>
+
         <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
           {/* Name */}
           <div className="flex flex-col">
@@ -72,13 +83,16 @@ const Register = () => {
             <div className="flex items-center border border-purple-300 rounded p-2 focus-within:ring-2 focus-within:ring-purple-400">
               <FaUser className="text-purple-500 mr-2" />
               <input
-                {...register("name", { required: true })}
+                {...register("name", { required: "Name is required" })}
                 type="text"
                 id="name"
                 placeholder="Full Name"
                 className="w-full outline-none bg-transparent"
               />
             </div>
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
           </div>
 
           {/* Photo */}
@@ -92,13 +106,17 @@ const Register = () => {
             <div className="flex items-center border border-purple-300 rounded p-2 focus-within:ring-2 focus-within:ring-purple-400">
               <IoIosPhotos className="text-purple-500 mr-2" />
               <input
-                {...register("photo", { required: true })}
+                {...register("photo", { required: "Photo is required" })}
                 type="file"
                 id="photo"
-                placeholder="Your Photo URL"
                 className="w-full outline-none bg-transparent"
               />
             </div>
+            {errors.photo && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.photo.message}
+              </p>
+            )}
           </div>
 
           {/* Email */}
@@ -112,35 +130,23 @@ const Register = () => {
             <div className="flex items-center border border-purple-300 rounded p-2 focus-within:ring-2 focus-within:ring-purple-400">
               <FaEnvelope className="text-purple-500 mr-2" />
               <input
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: "Email is required",
+                })}
                 type="email"
                 id="email"
                 placeholder="Email"
                 className="w-full outline-none bg-transparent"
               />
             </div>
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
           {/* Password */}
-          {/* <div className="flex flex-col">
-            <label
-              htmlFor="password"
-              className="text-purple-700 font-semibold mb-1"
-            >
-              Password
-            </label>
-            <div className="flex items-center border border-purple-300 rounded p-2 focus-within:ring-2 focus-within:ring-purple-400">
-              <FaLock className="text-purple-500 mr-2" />
-              <input
-                {...register("password", { required: true })}
-                type="password"
-                id="password"
-                placeholder="Password"
-                className="w-full outline-none bg-transparent"
-              />
-            </div>
-          </div> */}
-
           <div className="flex flex-col">
             <label
               htmlFor="password"
@@ -168,6 +174,12 @@ const Register = () => {
                 className="w-full outline-none bg-transparent"
               />
             </div>
+
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
+            )}
           </div>
 
           <button
@@ -177,12 +189,14 @@ const Register = () => {
             Register
           </button>
         </form>
+
         <p className="text-purple-700 text-center mt-4">
           Already have an account?{" "}
           <Link to="/login" className="text-purple-900 font-semibold">
             Login
           </Link>
         </p>
+
         <GoogleLogin />
       </div>
     </div>

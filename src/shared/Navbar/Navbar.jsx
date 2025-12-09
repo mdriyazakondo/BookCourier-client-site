@@ -3,9 +3,7 @@ import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import Loading from "../Loading/Loading";
-import { FiSun, FiMoon } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -34,14 +32,15 @@ const Navbar = () => {
       <li className={`${isActive("/contacts")} ml-2`}>
         <Link to="/contacts">Contact Us</Link>
       </li>
+      <li className={`${isActive("/dashboard/wish-list")} ml-2`}>
+        <Link to="/dashboard/wish-list">My Wish List</Link>
+      </li>
 
       <li className={`${isActive("/dashboard")} ml-2`}>
         <Link to="/dashboard">Dashboard</Link>
       </li>
     </>
   );
-
-  // if (loading) return <Loading />;
 
   const handleLogout = async () => {
     const confirm = await Swal.fire({

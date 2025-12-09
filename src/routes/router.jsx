@@ -22,6 +22,7 @@ import AdminRoute from "./PriviteRoute/AdminRoute";
 import LibrarianRoute from "./PriviteRoute/LibrarianRoute";
 import CustomerRoute from "./PriviteRoute/CustomerRoute";
 import Contact from "../pages/Contact/Contact";
+import WishList from "../pages/Dashboard/WishLIst/WishList";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,14 @@ export const router = createBrowserRouter([
         element: (
           <CustomerRoute>
             <Invoices />
+          </CustomerRoute>
+        ),
+      },
+      {
+        path: "wish-list",
+        element: (
+          <CustomerRoute>
+            <WishList />
           </CustomerRoute>
         ),
       },

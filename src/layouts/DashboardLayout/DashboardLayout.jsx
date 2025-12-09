@@ -135,6 +135,17 @@ const DashboardLayout = () => {
                         <span>Invoices</span>
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        to="/dashboard/wish-list"
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                          "/dashboard/wish-list"
+                        )}`}
+                      >
+                        <LiaFileInvoiceSolid className="text-lg" />
+                        <span>Wish List</span>
+                      </Link>
+                    </li>
                   </>
                 )}
 
