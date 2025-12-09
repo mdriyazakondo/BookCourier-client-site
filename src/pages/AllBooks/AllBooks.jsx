@@ -34,7 +34,7 @@ const AllBooks = () => {
   return (
     <Container>
       <div>
-        <h2 className="text-4xl font-bold text-green-500 text-center mb-4">
+        <h2 className="text-4xl font-bold text-purple-500 text-center mb-4">
           All Books
         </h2>
         <div className="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 ">
@@ -45,7 +45,7 @@ const AllBooks = () => {
               value={searBook}
               onChange={(e) => setSearchBook(e.target.value)}
               placeholder="Search Book..."
-              className="w-full py-3 pl-4 pr-4 border rounded-sm shadow-sm outline-none border-green-400"
+              className="w-full py-3 pl-4 pr-4 border rounded-sm shadow-sm outline-none border-purple-400"
             />
           </div>
 
@@ -54,7 +54,7 @@ const AllBooks = () => {
             <select
               onChange={(e) => setSortBook(e.target.value)}
               value={sortBook}
-              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm  outline-none border-green-400 "
+              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm  outline-none border-purple-400 "
             >
               <option disabled selected>
                 Sort By Price
@@ -77,7 +77,7 @@ const AllBooks = () => {
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
-            className="px-4 py-2 bg-green-600 text-white rounded disabled:bg-gray-400"
+            className="px-4 py-2 bg-purple-600 text-white rounded disabled:bg-gray-400"
           >
             Prev
           </button>
@@ -88,7 +88,7 @@ const AllBooks = () => {
               onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 rounded ${
                 currentPage === index + 1
-                  ? "bg-green-700 text-white"
+                  ? "bg-purple-700 text-white"
                   : "bg-gray-200 text-gray-700"
               }`}
             >
@@ -99,7 +99,7 @@ const AllBooks = () => {
           <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}
-            className="px-4 py-2 bg-green-600 text-white rounded disabled:bg-gray-400"
+            className="px-4 py-2 bg-purple-600 text-white rounded disabled:bg-gray-400"
           >
             Next
           </button>

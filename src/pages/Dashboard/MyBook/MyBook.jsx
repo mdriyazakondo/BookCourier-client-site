@@ -68,7 +68,7 @@ const MyBook = () => {
   // };
   return (
     <div>
-      <h2 className="text-center text-3xl md:text-4xl font-bold text-green-500">
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-purple-500">
         My All Books
       </h2>
       <div className=" px-4 sm:px-8">

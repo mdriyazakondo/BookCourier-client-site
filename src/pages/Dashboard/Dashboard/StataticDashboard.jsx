@@ -70,7 +70,7 @@ const Dashboard = () => {
               <p className="text-2xl font-bold">{item.reward}</p>
               <p
                 className={`mt-1 ${
-                  item.change.includes("-") ? "text-red-500" : "text-green-500"
+                  item.change.includes("-") ? "text-red-500" : "text-purple-500"
                 }`}
               >
                 {item.change}

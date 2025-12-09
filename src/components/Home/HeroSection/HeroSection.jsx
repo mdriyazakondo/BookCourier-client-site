@@ -53,12 +53,12 @@ const HeroSection = () => {
                   {slide.description?.slice(0, 120)}...
                 </p>
 
-                <p className="font-semibold text-green-600 text-lg md:text-xl">
+                <p className="font-semibold text-purple-600 text-lg md:text-xl">
                   Price: ${slide.price}
                 </p>
 
                 <Link to={`/books/${slide._id}`}>
-                  <button className="bg-green-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg hover:bg-green-700 transition text-sm md:text-base">
+                  <button className="bg-purple-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg hover:bg-purple-700 transition text-sm md:text-base">
                     View Details
                   </button>
                 </Link>
@@ -73,7 +73,7 @@ const HeroSection = () => {
                 />
 
                 {/* Badge */}
-                <p className="absolute right-2 top-2 py-1 px-2 md:px-3 bg-green-500 text-white rounded-full text-xs md:text-sm">
+                <p className="absolute right-2 top-2 py-1 px-2 md:px-3 bg-purple-500 text-white rounded-full text-xs md:text-sm">
                   New Product & Popular
                 </p>
               </div>

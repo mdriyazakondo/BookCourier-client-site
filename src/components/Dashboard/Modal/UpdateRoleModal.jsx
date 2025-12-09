@@ -58,7 +58,7 @@ const UpdateRoleModal = ({ isOpen, closeModal, user, refetch }) => {
                   <button
                     onClick={handleUpdateRole}
                     type="button"
-                    className="cursor-pointer inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                    className="cursor-pointer inline-flex justify-center rounded-md border border-transparent bg-purple-100 px-4 py-2 text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
                   >
                     Update
                   </button>

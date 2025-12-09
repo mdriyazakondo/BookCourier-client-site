@@ -40,7 +40,7 @@ const InvoicesTable = ({ order }) => {
           className={`${
             status === "pending"
               ? "text-red-500 bg-red-100 "
-              : "text-green-500 bg-green-100  "
+              : "text-purple-500 bg-purple-100  "
           } py-1 px-3 rounded-full`}
         >
           {" "}

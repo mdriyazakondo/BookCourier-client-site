@@ -69,7 +69,7 @@ const OrderModal = ({ isOpen, closeModal, orderPayment, refetch }) => {
             <div className="flex mt-2 justify-around">
               <button
                 onClick={handleUpdateStatus}
-                className="bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer"
+                className="bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer"
               >
                 Update
               </button>

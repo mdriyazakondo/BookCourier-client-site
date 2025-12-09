@@ -32,7 +32,7 @@ const ManageBookTable = ({ book, refetch, handleDelete }) => {
       <td className="table-data border border-gray-300 text-center">
         <span
           onClick={() => setIsOpen(true)}
-          className="cursor-pointer px-3 py-1 bg-green-200 text-green-900 rounded-full"
+          className="cursor-pointer px-3 py-1 bg-purple-200 text-purple-900 rounded-full"
         >
           {status}
         </span>

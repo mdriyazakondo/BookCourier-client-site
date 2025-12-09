@@ -19,8 +19,8 @@ const Navbar = () => {
 
   const isActive = (path) =>
     location.pathname === path
-      ? "bg-green-500 text-white rounded-sm"
-      : "text-green-500 font-semibold hover:bg-green-500 hover:text-white rounded-sm";
+      ? "bg-purple-500 text-white rounded-sm"
+      : "text-purple-500 font-semibold hover:bg-purple-500 hover:text-white rounded-sm";
 
   const links = (
     <>
@@ -122,7 +122,7 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={handleLogout}
-              className="py-2 px-4 bg-green-500 text-white rounded-sm hover:bg-green-600 transition"
+              className="py-2 px-4 bg-purple-500 text-white rounded-sm hover:bg-purple-600 transition"
             >
               Logout
             </button>

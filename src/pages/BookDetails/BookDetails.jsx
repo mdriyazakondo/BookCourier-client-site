@@ -92,10 +92,10 @@ const BookDetails = () => {
 
   return (
     <div className="pt-20">
-      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl border border-green-200">
+      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl border border-purple-200">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Left Side — Details */}
-          <div className="flex justify-center items-center p-6 bg-white rounded-r-xl border-l border-green-100">
+          <div className="flex justify-center items-center p-6 bg-white rounded-r-xl border-l border-purple-100">
             <img
               src={image}
               alt={bookName}
@@ -103,11 +103,11 @@ const BookDetails = () => {
             />
           </div>
           {/* Right Side — Large Image */}
-          <div className="p-8 space-y-4 bg-green-50 rounded-l-xl">
-            <h1 className="text-3xl font-bold text-green-700">{bookName}</h1>
-            <p className="text-lg text-green-600 mb-2">By {authorName}</p>
+          <div className="p-8 space-y-4 bg-purple-50 rounded-l-xl">
+            <h1 className="text-3xl font-bold text-purple-700">{bookName}</h1>
+            <p className="text-lg text-purple-600 mb-2"><span className="font-semibold">By:</span> {authorName}</p>
 
-            <div className="grid grid-cols-2 gap-3 text-green-800 text-sm">
+            <div className="grid grid-cols-2 gap-3 text-purple-800 text-sm">
               <p>
                 <strong>Genre:</strong> {genre}
               </p>
@@ -140,18 +140,18 @@ const BookDetails = () => {
               </p>
             </div>
 
-            <p className="text-green-700 mt-3">
+            <p className="text-purple-700 mt-3">
               <strong>Description:</strong> {description}
             </p>
 
             <div className="flex items-center justify-between mt-6">
-              <span className="text-3xl font-bold text-green-700">
+              <span className="text-3xl font-bold text-purple-700">
                 ${price}
               </span>
 
               <span
                 className={`px-4 py-2 rounded-lg text-white text-sm font-semibold ${
-                  status === "Available" ? "bg-green-600" : "bg-red-500"
+                  status === "Available" ? "bg-purple-600" : "bg-red-500"
                 }`}
               >
                 {status}
@@ -160,7 +160,7 @@ const BookDetails = () => {
 
             <button
               onClick={() => handleOrder(book)}
-              className="w-full mt-5 cursor-pointer bg-green-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
+              className="w-full mt-5 cursor-pointer bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
             >
               Order Now
             </button>

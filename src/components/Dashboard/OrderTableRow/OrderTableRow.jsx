@@ -100,7 +100,7 @@ const OrderTableRow = ({ order, refetch }) => {
           className={`${
             paymentStatus === "unpaid"
               ? "text-red-500 bg-red-100 "
-              : "text-green-500 bg-green-100  "
+              : "text-purple-500 bg-purple-100  "
           } py-1 px-3 rounded-full`}
         >
           {" "}
@@ -116,7 +116,7 @@ const OrderTableRow = ({ order, refetch }) => {
           className={`${
             status === "pending" || status === "cancelled"
               ? "text-red-500 bg-red-100 "
-              : "text-green-500 bg-green-100  "
+              : "text-purple-500 bg-purple-100  "
           } py-1 px-3 rounded-full`}
         >
           {" "}
@@ -142,7 +142,7 @@ const OrderTableRow = ({ order, refetch }) => {
         <button
           disabled={paymentStatus === "paid" || status === "cancelled"}
           onClick={() => handlePayment(order)}
-          className="bg-green-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
+          className="bg-purple-500 text-white py-1 px-4 rounded-sm cursor-pointer text-nowrap"
         >
           Pay
         </button>

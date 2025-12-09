@@ -21,7 +21,7 @@ const OrderTable = ({ orderPayment, refetch }) => {
   return (
     <tr>
       <td className="px-5 border text-center bg-white flex items-center justify-center">
-        <img src={image} alt="" className="w-14 h-12 bg-green-600" />
+        <img src={image} alt="" className="w-14 h-12 bg-purple-600" />
       </td>
       <td className="px-5 border text-center bg-white">{name}</td>
       <td className="px-5 border text-center bg-white">{authorName}</td>
@@ -35,9 +35,9 @@ const OrderTable = ({ orderPayment, refetch }) => {
       <td className="px-5 border text-center bg-white">
         <span
           onClick={() => setIsOpen(true)}
-          className="cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 relative"
+          className="cursor-pointer inline-block px-3 py-1 font-semibold text-purple-900 relative"
         >
-          <span className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+          <span className="absolute inset-0 bg-purple-200 opacity-50 rounded-full"></span>
           <span className="relative">{status}</span>
         </span>
 

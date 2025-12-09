@@ -76,7 +76,7 @@ const AddBook = () => {
   };
   return (
     <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
-      <h1 className="text-3xl font-bold mb-8 text-center text-green-600">
+      <h1 className="text-3xl font-bold mb-8 text-center text-purple-600 ">
         Add a New Book
       </h1>
       <form
@@ -85,168 +85,168 @@ const AddBook = () => {
       >
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaBook className="text-green-500" /> Book Name
+            <FaBook className="text-purple-500" /> Book Name
           </label>
           <input
             type="text"
             {...register("bookName", { required: true })}
-            placeholder="Enter book title"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            placeholder="Enter book Name"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaUser className="text-green-500" /> Author Name
+            <FaUser className="text-purple-500" /> Author Name
           </label>
           <input
             {...register("authorName", { required: true })}
             type="text"
             defaultValue={user?.displayName}
             placeholder="Enter author name"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaFileAlt className="text-green-500" /> ISBN
+            <FaFileAlt className="text-purple-500" /> ISBN
           </label>
           <input
             {...register("isbn", { required: true })}
             type="text"
             placeholder="Enter ISBN number"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaUser className="text-green-500" /> Publisher
+            <FaUser className="text-purple-500" /> Publisher
           </label>
           <input
             {...register("publisher", { required: true })}
             type="text"
             placeholder="Enter publisher name"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaCalendarAlt className="text-green-500" /> Published Year
+            <FaCalendarAlt className="text-purple-500" /> Published Year
           </label>
           <input
             {...register("publishedYear", { required: true })}
             type="number"
             placeholder="Enter published year"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaSortNumericDown className="text-green-500" /> Number of Pages
+            <FaSortNumericDown className="text-purple-500" /> Number of Pages
           </label>
           <input
             {...register("pageNumber", { required: true })}
             type="number"
             placeholder="Enter total pages"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaLanguage className="text-green-500" /> Language
+            <FaLanguage className="text-purple-500" /> Language
           </label>
           <input
             {...register("language", { required: true })}
             type="text"
             placeholder="Enter language"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaLayerGroup className="text-green-500" /> Genre
+            <FaLayerGroup className="text-purple-500" /> Genre
           </label>
           <input
             {...register("genre", { required: true })}
             type="text"
             placeholder="Enter genre"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaDollarSign className="text-green-500" /> Price
+            <FaDollarSign className="text-purple-500" /> Price
           </label>
           <input
             {...register("price", { required: true })}
             type="number"
             placeholder="Enter price"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaSortNumericDown className="text-green-500" /> Stock Quantity
+            <FaSortNumericDown className="text-purple-500" /> Stock Quantity
           </label>
           <input
             {...register("stockQuantity", { required: true })}
             type="number"
             placeholder="Enter stock quantity"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaFileAlt className="text-green-500" /> Edition
+            <FaFileAlt className="text-purple-500" /> Edition
           </label>
           <input
             {...register("edition", { required: true })}
             type="text"
             placeholder="Enter edition"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaLayerGroup className="text-green-500" /> Format
+            <FaLayerGroup className="text-purple-500" /> Format
           </label>
           <input
             {...register("format", { required: true })}
             type="text"
             placeholder="Hardcover / Paperback / eBook"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaLayerGroup className="text-green-500" /> Category
+            <FaLayerGroup className="text-purple-500" /> Category
           </label>
           <input
             {...register("category", { required: true })}
             type="text"
             placeholder="Enter category"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaLayerGroup className="text-green-500" /> Status
+            <FaLayerGroup className="text-purple-500" /> Status
           </label>
           <select
             {...register("status", { required: true })}
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
             defaultValue=""
           >
             <option value="" disabled>
@@ -260,12 +260,12 @@ const AddBook = () => {
         {/* Book Cover (full width) */}
         <div className="md:col-span-2">
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaImage className="text-green-500" /> Book Cover
+            <FaImage className="text-purple-500" /> Book Cover
           </label>
           <input
             {...register("bookCover", { required: true })}
             type="file"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
@@ -277,7 +277,7 @@ const AddBook = () => {
           <textarea
             {...register("description", { required: true })}
             placeholder="Enter book description"
-            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
@@ -285,7 +285,7 @@ const AddBook = () => {
         <div className="md:col-span-2">
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+            className="w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 transition"
           >
             Add Book
           </button>

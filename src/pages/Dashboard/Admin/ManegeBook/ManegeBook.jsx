@@ -43,7 +43,7 @@ const ManageBook = () => {
   if (isLoading) return <Loading />;
   return (
     <div>
-      <h2 className="text-center text-3xl md:text-4xl font-bold text-green-500">
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-purple-500">
         Manage All Books
       </h2>
 

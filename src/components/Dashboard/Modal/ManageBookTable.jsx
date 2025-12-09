@@ -55,7 +55,7 @@ const ManageBookModal = ({ isOpen, closeModal, bookId, refetch }) => {
           <div className="flex justify-between mt-6">
             <button
               onClick={handleUpdate}
-              className="bg-green-500 text-white px-4 py-2 rounded-md"
+              className="bg-purple-500 text-white px-4 py-2 rounded-md"
             >
               Update
             </button>

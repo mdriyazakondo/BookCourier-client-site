@@ -42,7 +42,7 @@ const GoogleLogin = () => {
     <div>
       <button
         onClick={handleGoogleLogin}
-        className="py-2 w-full bg-green-500 text-white mt-4 cursor-pointer rounded-sm flex items-center gap-2 justify-center hover:bg-green-600 transition"
+        className="py-2 w-full bg-purple-500 text-white mt-4 cursor-pointer rounded-sm flex items-center gap-2 justify-center hover:bg-purple-600 transition"
       >
         <FaGoogle />
         Google Login

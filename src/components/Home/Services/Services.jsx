@@ -52,10 +52,10 @@ export default function ServicesSection() {
 
   return (
     <Container>
-      <section className="pt-14 bg-linear-to-b from-white to-green-50">
+      <section className="pt-14 bg-linear-to-b from-white to-purple-50">
         <div className="">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-green-900">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-purple-900">
               Our Premium Services
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
@@ -70,10 +70,10 @@ export default function ServicesSection() {
               return (
                 <article
                   transition={{ delay: idx * 0.08, duration: 0.45 }}
-                  className="group bg-white border border-green-100 hover:shadow-xl hover:-translate-y-1 transform transition-all rounded-2xl p-6 flex items-start gap-4"
+                  className="group bg-white border border-purple-100 hover:shadow-xl hover:-translate-y-1 transform transition-all rounded-2xl p-6 flex items-start gap-4"
                 >
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-linear-to-br from-green-200 to-green-400 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-green-900" />
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-linear-to-br from-purple-200 to-purple-400 flex items-center justify-center">
+                    <Icon className="w-7 h-7 text-purple-900" />
                   </div>
 
                   <div>
@@ -86,7 +86,7 @@ export default function ServicesSection() {
 
                     <button
                       aria-label={`Learn More — ${s.title}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-green-700 group-hover:underline"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-purple-700 group-hover:underline"
                     >
                       Learn More
                       <svg

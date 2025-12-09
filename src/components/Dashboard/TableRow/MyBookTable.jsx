@@ -26,9 +26,9 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
       <td className="px-5 border text-center bg-white">
         <span
           onClick={() => setIsOpen(true)}
-          className="cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 relative"
+          className="cursor-pointer inline-block px-3 py-1 font-semibold text-purple-900 relative"
         >
-          <span className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+          <span className="absolute inset-0 bg-purple-200 opacity-50 rounded-full"></span>
           <span className="relative">{status}</span>
         </span>
 
@@ -42,7 +42,7 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
       </td>
 
       <td className="px-5 border text-center bg-white">
-        <button className="bg-green-500 text-white py-1 px-4 rounded-sm">
+        <button className="bg-purple-500 text-white py-1 px-4 rounded-sm">
           Update Book
         </button>
 

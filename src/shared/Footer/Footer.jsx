@@ -28,19 +28,19 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Home
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 All Books
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Categories
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 About Us
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Contact
               </li>
             </ul>
@@ -50,19 +50,19 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Support</h3>
             <ul className="space-y-2">
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Help Center
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 FAQs
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Shipping Info
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Return Policy
               </li>
-              <li className="hover:text-green-400 transition cursor-pointer">
+              <li className="hover:text-purple-400 transition cursor-pointer">
                 Privacy Policy
               </li>
             </ul>
@@ -76,16 +76,16 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-4">
-              <a className="bg-gray-800 p-3 rounded-full hover:bg-green-500 transition">
+              <a className="bg-gray-800 p-3 rounded-full hover:bg-purple-500 transition">
                 <FaFacebookF />
               </a>
-              <a className="bg-gray-800 p-3 rounded-full hover:bg-green-500 transition">
+              <a className="bg-gray-800 p-3 rounded-full hover:bg-purple-500 transition">
                 <FaInstagram />
               </a>
-              <a className="bg-gray-800 p-3 rounded-full hover:bg-green-500 transition">
+              <a className="bg-gray-800 p-3 rounded-full hover:bg-purple-500 transition">
                 <FaTwitter />
               </a>
-              <a className="bg-gray-800 p-3 rounded-full hover:bg-green-500 transition">
+              <a className="bg-gray-800 p-3 rounded-full hover:bg-purple-500 transition">
                 <FaLinkedinIn />
               </a>
             </div>

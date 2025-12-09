@@ -20,8 +20,8 @@ const DashboardLayout = () => {
 
   const isActive = (path) =>
     pathname === path
-      ? "bg-green-200 dark:bg-green-700 text-green-700 dark:text-white font-semibold"
-      : "hover:bg-green-100 dark:hover:bg-gray-700";
+      ? "bg-purple-200 dark:bg-purple-700 text-purple-700 dark:text-white font-semibold"
+      : "hover:bg-purple-100 dark:hover:bg-gray-700";
 
   const handleLogout = async () => {
     const confirm = await Swal.fire({
@@ -57,7 +57,7 @@ const DashboardLayout = () => {
   if (loading) return null;
 
   return (
-    <div className="min-h-screen bg-green-50 dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen bg-purple-50 dark:bg-gray-900 dark:text-white">
       <div className="drawer lg:drawer-open">
         <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
@@ -69,7 +69,7 @@ const DashboardLayout = () => {
               <FiMenu className="text-xl" />
             </label>
 
-            <h2 className="text-2xl font-bold text-green-500">
+            <h2 className="text-2xl font-bold text-purple-500">
               <Link to="/">Book Courier</Link>
             </h2>
           </nav>
@@ -91,7 +91,7 @@ const DashboardLayout = () => {
                 <li>
                   <Link
                     to="/"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/"
                     )}`}
                   >
@@ -102,7 +102,7 @@ const DashboardLayout = () => {
                 <li>
                   <Link
                     to="/dashboard"
-                    className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                    className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                       "/dashboard"
                     )}`}
                   >
@@ -116,7 +116,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/my-orders"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/my-orders"
                         )}`}
                       >
@@ -127,7 +127,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/invoices"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/invoices"
                         )}`}
                       >
@@ -143,7 +143,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/add-books"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/add-books"
                         )}`}
                       >
@@ -154,7 +154,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/my-books"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/my-books"
                         )}`}
                       >
@@ -165,7 +165,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/orders"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/orders"
                         )}`}
                       >
@@ -182,7 +182,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/all-user"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/all-user"
                         )}`}
                       >
@@ -193,7 +193,7 @@ const DashboardLayout = () => {
                     <li>
                       <Link
                         to="/dashboard/manage-book"
-                        className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                        className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                           "/dashboard/manage-book"
                         )}`}
                       >
@@ -209,7 +209,7 @@ const DashboardLayout = () => {
               <li>
                 <Link
                   to="/dashboard/profile"
-                  className={`flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
+                  className={`flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg transition mt-2 ${isActive(
                     "/dashboard/profile"
                   )}`}
                 >
@@ -222,7 +222,7 @@ const DashboardLayout = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center text-green-500 gap-3 py-2 px-3 rounded-lg hover:bg-green-200 dark:hover:bg-red-600 dark:text-white  transition"
+                  className="flex items-center text-purple-500 gap-3 py-2 px-3 rounded-lg hover:bg-purple-200 dark:hover:bg-red-600 dark:text-white  transition"
                 >
                   <MdLogout className="text-lg" />
                   <span>Logout</span>

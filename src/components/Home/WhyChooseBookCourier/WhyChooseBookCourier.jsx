@@ -11,7 +11,7 @@ const WhyChooseBookCourier = () => {
     <Container>
       <section className="py-16 shadow bg-white">
         <div className=" px-4 text-center">
-          <h2 className="text-4xl font-bold text-green-600 mb-4">
+          <h2 className="text-4xl font-bold text-purple-600 mb-4">
             Why Choose <span className="text-black">BookCourier</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-12">
@@ -22,7 +22,7 @@ const WhyChooseBookCourier = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Feature 1 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-              <FaShippingFast className="text-4xl text-green-500 mx-auto mb-4" />
+              <FaShippingFast className="text-4xl text-purple-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Fast & Safe Delivery
               </h3>
@@ -33,7 +33,7 @@ const WhyChooseBookCourier = () => {
 
             {/* Feature 2 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-              <FaBookOpen className="text-4xl text-green-500 mx-auto mb-4" />
+              <FaBookOpen className="text-4xl text-purple-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Wide Collection
               </h3>
@@ -45,7 +45,7 @@ const WhyChooseBookCourier = () => {
 
             {/* Feature 3 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-              <FaShieldAlt className="text-4xl text-green-500 mx-auto mb-4" />
+              <FaShieldAlt className="text-4xl text-purple-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Trusted Service
               </h3>
@@ -56,7 +56,7 @@ const WhyChooseBookCourier = () => {
 
             {/* Feature 4 */}
             <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-              <FaSmile className="text-4xl text-green-500 mx-auto mb-4" />
+              <FaSmile className="text-4xl text-purple-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
                 Customer Satisfaction
               </h3>
