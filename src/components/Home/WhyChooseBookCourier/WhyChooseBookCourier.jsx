@@ -12,7 +12,7 @@ const WhyChooseBookCourier = () => {
       <section className="py-16 shadow bg-white">
         <div className=" px-4 text-center">
           <h2 className="text-4xl font-bold text-green-600 mb-4">
-            Why Choose <span className="text-black">BookCourier</span>?
+            Why Choose <span className="text-black">BookCourier</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-12">
             We deliver more than just books — we deliver trust, quality, and a

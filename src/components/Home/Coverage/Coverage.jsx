@@ -30,7 +30,7 @@ const Coverage = () => {
 
   return (
     <Container>
-      <div style={{ height: "500px" }}>
+      <div style={{ height: "500px" }} className="">
         <MapContainer
           center={center}
           zoom={8}
