@@ -4,6 +4,7 @@ import Loading from "../../shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import BookRating from "../../components/BookRaring/BookRating";
 
 const BookDetails = () => {
   const { user } = useAuth();
@@ -213,6 +214,7 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+      <BookRating book={book} />
     </div>
   );
 };

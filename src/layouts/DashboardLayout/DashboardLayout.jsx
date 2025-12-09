@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { FiHome, FiMenu, FiSun, FiMoon } from "react-icons/fi";
 import { MdDashboard, MdLogout } from "react-icons/md";
-import { FaRegCircleUser } from "react-icons/fa6";
+import { FaHeartPulse, FaRegCircleUser } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { FaBook, FaJediOrder } from "react-icons/fa";
@@ -142,7 +142,7 @@ const DashboardLayout = () => {
                           "/dashboard/wish-list"
                         )}`}
                       >
-                        <LiaFileInvoiceSolid className="text-lg" />
+                        <FaHeartPulse className="text-lg" />
                         <span>Wish List</span>
                       </Link>
                     </li>
