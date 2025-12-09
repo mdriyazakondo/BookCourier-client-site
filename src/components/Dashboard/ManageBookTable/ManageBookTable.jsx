@@ -4,7 +4,7 @@ import ManageBookModal from "../Modal/ManageBookTable";
 const ManageBookTable = ({ book, refetch, handleDelete }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { bookTitle, authorName, language, price, status, image, create_date } =
+  const { bookName, authorName, language, price, status, image, create_date } =
     book;
 
   return (
@@ -14,7 +14,7 @@ const ManageBookTable = ({ book, refetch, handleDelete }) => {
       </td>
 
       <td className="table-data border border-gray-300 text-center">
-        {bookTitle}
+        {bookName}
       </td>
       <td className="table-data border border-gray-300 text-center">
         {authorName}

@@ -36,7 +36,7 @@ const HeroSection = () => {
               {/* Book Info */}
               <div className="flex flex-col justify-center items-center md:items-start space-y-4 md:space-y-5 text-center md:text-left">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-700">
-                  {slide.bookTitle}
+                  {slide.bookName}
                 </h2>
 
                 <p className="text-gray-700 font-medium text-lg md:text-xl">
@@ -68,7 +68,7 @@ const HeroSection = () => {
               <div className="flex justify-center relative">
                 <img
                   src={slide.image}
-                  alt={slide.bookTitle}
+                  alt={slide.bookName}
                   className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] w-full object-contain"
                 />
 

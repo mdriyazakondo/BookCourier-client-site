@@ -23,7 +23,7 @@ const AddBook = () => {
 
   const handleBookAdd = async (data) => {
     const {
-      bookTitle,
+      bookName,
       authorName,
       isbn,
       publisher,
@@ -46,7 +46,7 @@ const AddBook = () => {
       const image = await imageUpload(imageFile);
 
       const bookData = {
-        bookTitle,
+        bookName,
         authorName,
         authorEmail: user.email,
         isbn,
@@ -83,20 +83,18 @@ const AddBook = () => {
         onSubmit={handleSubmit(handleBookAdd)}
         className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
-        {/* Book Title */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
-            <FaBook className="text-green-500" /> Book Title
+            <FaBook className="text-green-500" /> Book Name
           </label>
           <input
             type="text"
-            {...register("bookTitle", { required: true })}
+            {...register("bookName", { required: true })}
             placeholder="Enter book title"
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
 
-        {/* Author Name */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaUser className="text-green-500" /> Author Name
@@ -110,7 +108,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* ISBN */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaFileAlt className="text-green-500" /> ISBN
@@ -123,7 +120,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Publisher */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaUser className="text-green-500" /> Publisher
@@ -136,7 +132,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Published Year */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaCalendarAlt className="text-green-500" /> Published Year
@@ -149,7 +144,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Number of Pages */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaSortNumericDown className="text-green-500" /> Number of Pages
@@ -162,7 +156,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Language */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaLanguage className="text-green-500" /> Language
@@ -175,7 +168,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Genre */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaLayerGroup className="text-green-500" /> Genre
@@ -188,7 +180,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Price */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaDollarSign className="text-green-500" /> Price
@@ -201,7 +192,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Stock Quantity */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaSortNumericDown className="text-green-500" /> Stock Quantity
@@ -214,7 +204,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Edition */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaFileAlt className="text-green-500" /> Edition
@@ -227,7 +216,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Format */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaLayerGroup className="text-green-500" /> Format
@@ -240,7 +228,6 @@ const AddBook = () => {
           />
         </div>
 
-        {/* Category */}
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaLayerGroup className="text-green-500" /> Category
@@ -252,7 +239,7 @@ const AddBook = () => {
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
-        {/* Status */}
+
         <div>
           <label className="text-gray-700 font-semibold mb-1 flex items-center gap-2">
             <FaLayerGroup className="text-green-500" /> Status

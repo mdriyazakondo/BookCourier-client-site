@@ -20,7 +20,7 @@ const BookDetails = () => {
   });
 
   const handleOrder = async (book) => {
-    const { bookTitle, authorName, price, authorEmail, image } = book;
+    const { bookName, authorName, price, authorEmail, image } = book;
 
     if (!user) {
       return navigate("/login");
@@ -28,7 +28,7 @@ const BookDetails = () => {
 
     const bookOrderData = {
       image,
-      name: bookTitle,
+      name: bookName,
       authorName,
       authorEmail,
       price,
@@ -72,7 +72,7 @@ const BookDetails = () => {
   if (isLoading) return <Loading />;
 
   const {
-    bookTitle,
+    bookName,
     authorName,
     isbn,
     publisher,
@@ -98,14 +98,14 @@ const BookDetails = () => {
           <div className="flex justify-center items-center p-6 bg-white rounded-r-xl border-l border-green-100">
             <img
               src={image}
-              alt={bookTitle}
+              alt={bookName}
               className="w-full max-h-[550px] object-contain rounded-lg"
             />
           </div>
           {/* Right Side — Large Image */}
           <div className="p-8 space-y-4 bg-green-50 rounded-l-xl">
-            <h1 className="text-3xl font-bold text-green-700">{bookTitle}</h1>
-            <p className="text-lg text-green-600 mb-2">by {authorName}</p>
+            <h1 className="text-3xl font-bold text-green-700">{bookName}</h1>
+            <p className="text-lg text-green-600 mb-2">By {authorName}</p>
 
             <div className="grid grid-cols-2 gap-3 text-green-800 text-sm">
               <p>

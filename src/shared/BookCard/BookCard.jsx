@@ -3,18 +3,18 @@ import Button from "../Button/Button";
 import { Link } from "react-router";
 
 const BookCard = ({ latest }) => {
-  const { bookTitle, authorName, genre, price, status, image } = latest;
+  const { bookName, authorName, genre, price, status, image } = latest;
 
   return (
     <div className=" bg-green-50 border border-green-200 rounded-xl shadow p-4 hover:shadow-lg transition">
       <img
         src={image}
-        alt={bookTitle}
+        alt={bookName}
         className="w-full h-56 object-cover rounded-lg border border-green-300"
       />
 
-      <h2 className="text-lg font-bold mt-3 text-green-700">{bookTitle}</h2>
-      <p className="text-green-600 text-sm">by {authorName}</p>
+      <h2 className="text-lg font-bold mt-3 text-green-700">{bookName}</h2>
+      <p className="text-green-600 text-sm">By {authorName}</p>
 
       <p className="mt-2 text-sm text-green-700">
         <strong>Genre:</strong> {genre}

@@ -5,16 +5,16 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
 
-  const { bookTitle, authorName, language, price, status, image, create_date } =
+  const { bookName, authorName, language, price, status, image, create_date } =
     book;
 
   return (
     <tr>
       <td className="py-2 border text-center bg-white">
-        <img src={image} alt={bookTitle} className="w-16 h-10" />
+        <img src={image} alt={bookName} className="w-16 h-10" />
       </td>
 
-      <td className="px-5 border text-center bg-white">{bookTitle}</td>
+      <td className="px-5 border text-center bg-white">{bookName}</td>
       <td className="px-5 border text-center bg-white">{authorName}</td>
       <td className="px-5 border text-center bg-white">
         {new Date(create_date).toDateString()}
