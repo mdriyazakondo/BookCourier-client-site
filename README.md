@@ -1,16 +1,105 @@
-# React + Vite
+## BookCourier – Client Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and user-friendly book exchange & delivery platform.
+This repository contains the client-side frontend of BookCourier, built with React and Tailwind CSS, and deployed on Vercel.
 
-Currently, two official plugins are available:
+# Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live URL: https://book-courier-client-site.vercel.app/
+GitHub Repository: https://github.com/mdriyazakondo/BookCourier-client-site
 
-## React Compiler
+# Project Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+BookCourier is designed to make book sharing, renting, or exchanging easier and more accessible for users. It provides a smooth UI for browsing books, managing user accounts, and interacting with book-related features in real time.
 
-## Expanding the ESLint configuration
+# Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Browse Books – View all available books with search & filter options
+
+Add New Books – Users can add new books to the system
+
+View Book Details – Detailed info including category, condition, availability
+
+Authentication System – Secure login/register (JWT or Firebase depending on your setup)
+
+Wishlist / Borrow Features (if implemented)
+
+Fully Responsive – Works smoothly on mobile, tablet, and desktop
+
+Fast & Optimized – React + Vite + Tailwind for a fast UI
+
+Modern UI/UX – Clean, minimal, and user friendly
+
+# Technologies Used
+
+Frontend
+
+React.js
+
+React Router DOM
+
+Axios
+
+Tailwind CSS
+
+React Icons
+
+React Hot Toast
+
+SweetAlert2 (optional — if used)
+
+# State & Data
+
+Context API / React Hooks
+
+# Build & Deployment
+
+Vite
+
+Vercel
+
+# NPM Packages Used
+
+Here are the common packages used in the project (modify if needed):
+
+```react
+    react-dom
+    react-router-dom
+    axios
+    react-hot-toast
+    react-icons
+    sweetalert2
+    tailwindcss
+    postcss
+    autoprefixer
+```
+
+# How to Run Locally
+
+```
+    # Clone the repository
+    git clone https://github.com/mdriyazakondo/BookCourier-client-site
+
+    # Go to project folder
+    cd BookCourier-client-site
+
+    # Install dependencies
+    npm install
+
+    # Start the development server
+    npm run dev
+```
+
+# Folder Structure (Basic Overview)
+
+```
+src/
+ ├── components/
+ ├── pages/
+ ├── layout/
+ ├── hooks/
+ ├── context/
+ ├── assets/
+ ├── App.jsx
+ └── main.jsx
+```

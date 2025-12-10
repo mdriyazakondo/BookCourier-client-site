@@ -4,9 +4,11 @@ import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import useRole from "../../hooks/useRole";
 
 const Navbar = () => {
   const location = useLocation();
+  const [role] = useRole();
   const navigate = useNavigate();
   const { user, logoutUserFunc, loading } = useAuth();
 
@@ -32,9 +34,11 @@ const Navbar = () => {
       <li className={`${isActive("/contacts")} ml-2`}>
         <Link to="/contacts">Contact Us</Link>
       </li>
-      <li className={`${isActive("/dashboard/wish-list")} ml-2`}>
-        <Link to="/dashboard/wish-list">My Wish List</Link>
-      </li>
+      {role === "customer" && (
+        <li className={`${isActive("/dashboard/wish-list")} ml-2`}>
+          <Link to="/dashboard/wish-list">My Wish List</Link>
+        </li>
+      )}
 
       <li className={`${isActive("/dashboard")} ml-2`}>
         <Link to="/dashboard">Dashboard</Link>
