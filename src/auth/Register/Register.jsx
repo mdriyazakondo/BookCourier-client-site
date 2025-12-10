@@ -14,7 +14,7 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }, // ⬅️ FIXED: errors added here
+    formState: { errors }, 
   } = useForm();
 
   const { createUserFunc } = useAuth();

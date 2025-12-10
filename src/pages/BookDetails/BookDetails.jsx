@@ -5,12 +5,15 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import BookRating from "../../components/BookRaring/BookRating";
+import BookOrderModal from "../../components/Dashboard/Modal/BookOrderModal";
+import { useState } from "react";
 
 const BookDetails = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const { data: book = {}, isLoading } = useQuery({
     queryKey: ["book", id],
@@ -19,53 +22,6 @@ const BookDetails = () => {
       return res.data;
     },
   });
-
-  const handleOrder = async (book) => {
-    const { bookName, authorName, price, authorEmail, image } = book;
-    if (!user) {
-      return navigate("/login");
-    }
-    const bookOrderData = {
-      image,
-      name: bookName,
-      authorName,
-      authorEmail,
-      price,
-      customerName: user?.displayName,
-      customerEmail: user?.email,
-      quantity: 1,
-    };
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Do you want to place this order?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Order it!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        try {
-          const res = await axiosSecure.post(`/orders`, bookOrderData);
-
-          if (res.data?.insertedId) {
-            Swal.fire({
-              title: "Order Placed!",
-              text: "Your order has been saved successfully.",
-              icon: "success",
-            });
-          }
-          navigate("/dashboard/my-orders");
-        } catch (error) {
-          Swal.fire({
-            title: "Error!",
-            text: "Failed to place the order.",
-            icon: "error",
-          });
-        }
-      }
-    });
-  };
 
   const handleWishList = async (books) => {
     const bookWishListData = {
@@ -111,6 +67,7 @@ const BookDetails = () => {
   const {
     bookName,
     authorName,
+    authorEmail,
     isbn,
     publisher,
     pageNumber,
@@ -144,6 +101,9 @@ const BookDetails = () => {
             <h1 className="text-3xl font-bold text-purple-700">{bookName}</h1>
             <p className="text-lg text-purple-600 mb-2">
               <span className="font-semibold">By:</span> {authorName}
+            </p>
+            <p className=" text-purple-600 mb-2">
+              <span className="font-semibold">Author Email:</span> {authorEmail}
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-purple-800 text-sm">
@@ -199,10 +159,15 @@ const BookDetails = () => {
 
             <div className="flex items-center justify-center gap-4">
               <button
-                onClick={() => handleOrder(book)}
+                onClick={() => setIsOpen(true)}
                 className="w-full mt-5 cursor-pointer bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
               >
-                Order Now
+                <span> Order Now</span>
+                <BookOrderModal
+                  isOpen={isOpen}
+                  closeModal={() => setIsOpen(false)}
+                  book={book}
+                />
               </button>{" "}
               <button
                 onClick={() => handleWishList(book)}

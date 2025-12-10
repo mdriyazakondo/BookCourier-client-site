@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ManageBookModal from "../Modal/ManageBookTable";
 
-const ManageBookTable = ({ book, refetch, handleDelete }) => {
+const ManageBookTable = ({ book, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { bookName, authorName, language, price, status, image, create_date } =
