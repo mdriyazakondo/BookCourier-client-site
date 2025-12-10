@@ -30,6 +30,7 @@ const BookRating = ({ book }) => {
 
     const ratingData = {
       name: user.displayName,
+      email: user.email,
       message: reviewText,
       rating,
       bookId: book._id,
