@@ -6,7 +6,7 @@ This repository contains the client-side frontend of BookCourier, built with Rea
 # Live Website
 
 Live URL: https://book-courier-client-site.vercel.app
-`````````````````````````````````````````````````````````````````````````````
+
 GitHub Repository: https://github.com/mdriyazakondo/BookCourier-client-site
 
 # Project Purpose
