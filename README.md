@@ -5,7 +5,7 @@ This repository contains the client-side frontend of BookCourier, built with Rea
 
 # Live Website
 
-Live URL: https://book-courier-client-site.vercel.app/
+Live URL: https://book-courier-client-site.vercel.app
 GitHub Repository: https://github.com/mdriyazakondo/BookCourier-client-site
 
 # Project Purpose
@@ -13,40 +13,26 @@ GitHub Repository: https://github.com/mdriyazakondo/BookCourier-client-site
 BookCourier is designed to make book sharing, renting, or exchanging easier and more accessible for users. It provides a smooth UI for browsing books, managing user accounts, and interacting with book-related features in real time.
 
 # Key Features
-
-Browse Books – View all available books with search & filter options
-
-Add New Books – Users can add new books to the system
-
-View Book Details – Detailed info including category, condition, availability
-
-Authentication System – Secure login/register (JWT or Firebase depending on your setup)
-
-Wishlist / Borrow Features (if implemented)
-
-Fully Responsive – Works smoothly on mobile, tablet, and desktop
-
-Fast & Optimized – React + Vite + Tailwind for a fast UI
-
-Modern UI/UX – Clean, minimal, and user friendly
+    Browse Books – View all available books with search & filter options
+    Add New Books – Users can add new books to the system
+    View Book Details – Detailed info including category, condition, availability
+    Authentication System – Secure login/register (JWT or Firebase depending on your setup)
+    Wishlist / Borrow Features (if implemented)
+    Fully Responsive – Works smoothly on mobile, tablet, and desktop
+    Fast & Optimized – React + Vite + Tailwind for a fast UI
+    Modern UI/UX – Clean, minimal, and user friendly
 
 # Technologies Used
 
-Frontend
-
-React.js
-
-React Router DOM
-
-Axios
-
-Tailwind CSS
-
-React Icons
-
-React Hot Toast
-
-SweetAlert2 (optional — if used)
+  Frontend
+      React.js
+      React Router DOM
+      Axios
+      Tailwind CSS
+      React Icons
+      React Hot Toast
+      TanStack Query
+      SweetAlert2 (optional — if used)
 
 # State & Data
 
@@ -94,12 +80,15 @@ Here are the common packages used in the project (modify if needed):
 
 ```
 src/
+ ├── auth/
  ├── components/
- ├── pages/
- ├── layout/
- ├── hooks/
  ├── context/
- ├── assets/
- ├── App.jsx
+ ├── firebase/
+ ├── hooks/
+ ├── layouts/
+ ├── pages
+ ├── routes/
+ ├── shared/
+ ├── utils/
  └── main.jsx
 ```
