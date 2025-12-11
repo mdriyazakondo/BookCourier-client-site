@@ -81,21 +81,22 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
             <input
               value={user?.displayName}
               type="text"
+              readOnly
               {...register("name", { required: true })}
-              className="border border-gray-300 py-2  outlaine-none px-3 cursor-not-allowed"
-              placeholder="Enter Your Name"
+              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 cursor-not-allowed"
             />
+
             <input
               value={user?.email}
               type="email"
+              readOnly
               {...register("email", { required: true })}
-              className="border border-gray-300 py-2  outlaine-none px-3"
-              placeholder="Enter Your Email"
+              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 cursor-not-allowed"
             />
             <input
               type="number"
               {...register("number", { required: true })}
-              className="border border-gray-300 py-2  outlaine-none px-3 cursor-not-allowed"
+              className="border border-gray-300 py-2  outlaine-none px-3"
               placeholder="Enter Your Phone Number"
             />
             <input
