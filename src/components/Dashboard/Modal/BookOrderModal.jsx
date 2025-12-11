@@ -83,7 +83,7 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
               type="text"
               readOnly
               {...register("name", { required: true })}
-              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 cursor-not-allowed"
+              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 "
             />
 
             <input
@@ -91,7 +91,7 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
               type="email"
               readOnly
               {...register("email", { required: true })}
-              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 cursor-not-allowed"
+              className="border border-gray-200 py-2 outlaine-none px-3 bg-gray-50 "
             />
             <input
               type="number"
