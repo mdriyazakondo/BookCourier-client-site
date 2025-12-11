@@ -79,14 +79,14 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
             className="grid gird-cols-2 gap-3"
           >
             <input
-              defaultValue={user?.displayName}
+              value={user?.displayName}
               type="text"
               {...register("name", { required: true })}
               className="border border-gray-300 py-2  outlaine-none px-3"
               placeholder="Enter Your Name"
             />
             <input
-              defaultValue={user?.email}
+              value={user?.email}
               type="email"
               {...register("email", { required: true })}
               className="border border-gray-300 py-2  outlaine-none px-3"
