@@ -7,6 +7,7 @@ import {
 import { FaBook } from "react-icons/fa6";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -29,19 +30,19 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li className="hover:text-purple-400 transition cursor-pointer">
-                Home
+                <Link to={"/"}> Home</Link>
               </li>
               <li className="hover:text-purple-400 transition cursor-pointer">
-                All Books
+                <Link
+                  to={"/all-books"}
+                  className="hover:text-purple-400 transition cursor-pointer"
+                >
+                  All Books
+                </Link>
               </li>
+
               <li className="hover:text-purple-400 transition cursor-pointer">
-                Categories
-              </li>
-              <li className="hover:text-purple-400 transition cursor-pointer">
-                About Us
-              </li>
-              <li className="hover:text-purple-400 transition cursor-pointer">
-                Contact
+                <Link to={"/contacts"}> Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -56,14 +57,9 @@ const Footer = () => {
               <li className="hover:text-purple-400 transition cursor-pointer">
                 FAQs
               </li>
-              <li className="hover:text-purple-400 transition cursor-pointer">
-                Shipping Info
-              </li>
+
               <li className="hover:text-purple-400 transition cursor-pointer">
                 Return Policy
-              </li>
-              <li className="hover:text-purple-400 transition cursor-pointer">
-                Privacy Policy
               </li>
             </ul>
           </div>

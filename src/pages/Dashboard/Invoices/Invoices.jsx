@@ -56,7 +56,7 @@ const Invoices = () => {
                         scope="col"
                         className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                       >
-                        TransationId
+                        Payment Id
                       </th>
 
                       <th

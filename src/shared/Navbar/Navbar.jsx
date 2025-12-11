@@ -11,7 +11,7 @@ const Navbar = () => {
   const [role] = useRole();
   const navigate = useNavigate();
   const { user, logoutUserFunc, loading } = useAuth();
-  console.log(user);
+
 
   const isActive = (path) =>
     location.pathname === path
