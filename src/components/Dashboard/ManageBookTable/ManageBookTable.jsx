@@ -8,28 +8,28 @@ const ManageBookTable = ({ book, refetch }) => {
     book;
 
   return (
-    <tr className="border-b border-gray-400">
-      <td className="table-data border border-gray-300 flex items-center justify-center py-1">
+    <tr className="border-b border-gray-200">
+      <td className="table-data text-nowrap flex items-center justify-center py-1">
         <img src={image} className="w-16 h-12 object-cover" />
       </td>
 
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         {bookName}
       </td>
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         {authorName}
       </td>
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         {new Date(create_date).toDateString()}
       </td>
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         ${price}
       </td>
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         {language}
       </td>
 
-      <td className="table-data border border-gray-300 text-center">
+      <td className="table-data text-nowrap text-center">
         <span
           onClick={() => setIsOpen(true)}
           className="cursor-pointer px-3 py-1 bg-purple-200 text-purple-900 rounded-full"

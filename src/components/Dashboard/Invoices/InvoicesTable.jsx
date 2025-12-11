@@ -16,25 +16,25 @@ const InvoicesTable = ({ order }) => {
     description,
   } = order;
   return (
-    <tr className="bg-white border-b border-gray-400 text-gray-700">
-      <td className="py-2 px-4  border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+    <tr className="bg-purple-50 border-b  text-gray-700  border-gray-300">
+      <td className="py-3 px-4   text-gray-700 text-center text-sm text-nowrap">
         {bookName}
       </td>
 
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {customer_name}
       </td>
 
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {customer_email}
       </td>
 
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {transationId}
       </td>
 
       <td
-        className={`py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap `}
+        className={`py-3 px-4  text-gray-700 text-center text-sm text-nowrap `}
       >
         <span
           className={`${
@@ -48,11 +48,11 @@ const InvoicesTable = ({ order }) => {
         </span>
       </td>
 
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         ${price}
       </td>
 
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {new Date(payment_date).toDateString()}
       </td>
     </tr>

@@ -29,29 +29,40 @@ const UserManagment = () => {
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
               <table className="min-w-full leading-normal">
                 <thead>
-                  <tr>
+                  <tr className="bg-purple-200">
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
+                    >
+                      Image
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
                     >
                       Email
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
                     >
                       Role
                     </th>
-
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
+                    >
+                      Last Login
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
                     >
                       Action
                     </th>

@@ -52,28 +52,14 @@ const ManageBook = () => {
           <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
             <table className="min-w-full leading-normal">
               <thead>
-                <tr>
-                  <th className="table-head border py-2 border-gray-300">
-                    Image
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Book Name
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Author Name
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Create Date
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Price
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Language
-                  </th>
-                  <th className="table-head border py-2 border-gray-300">
-                    Status
-                  </th>
+                <tr className="bg-purple-200">
+                  <th className="table-head  py-2 ">Image</th>
+                  <th className="table-head  py-2 ">Book Name</th>
+                  <th className="table-head  py-2 ">Author Name</th>
+                  <th className="table-head  py-2 ">Create Date</th>
+                  <th className="table-head  py-2 ">Price</th>
+                  <th className="table-head  py-2 ">Language</th>
+                  <th className="table-head  py-2 ">Status</th>
                 </tr>
               </thead>
 

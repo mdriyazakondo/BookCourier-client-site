@@ -30,69 +30,69 @@ const MyOrders = () => {
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
               <table className="min-w-full leading-normal">
                 <thead>
-                  <tr>
+                  <tr className="bg-purple-200">
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3  text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Customar Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Book Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3  text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Author Name
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Customar Email
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3 text-nowrap bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3 text-nowrap   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Payment Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Price
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Quantity
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Order Date
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Action
                     </th>

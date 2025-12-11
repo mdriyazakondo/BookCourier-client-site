@@ -11,11 +11,7 @@ const Navbar = () => {
   const [role] = useRole();
   const navigate = useNavigate();
   const { user, logoutUserFunc, loading } = useAuth();
-
-  // ---------------- Theme Toggle ----------------
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
-  );
+  console.log(user);
 
   const isActive = (path) =>
     location.pathname === path
@@ -133,7 +129,7 @@ const Navbar = () => {
                   <div>
                     <img
                       className="w-10 h-10 rounded-full"
-                      src={user.photoURL}
+                      src={user?.photoURL || user?.proactiveRefresh?.user?.photoURL}
                       alt=""
                     />
                   </div>

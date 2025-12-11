@@ -60,7 +60,6 @@ const OrderTableRow = ({ order, refetch }) => {
   };
 
   const handlePayment = async (payment) => {
-    console.log(payment);
     const paymentInfo = {
       name: payment.name,
       price: payment.price,
@@ -73,29 +72,29 @@ const OrderTableRow = ({ order, refetch }) => {
   };
 
   return (
-    <tr className="bg-white border-b border-gray-400 text-gray-700">
+    <tr className="bg-purple-50 border-b border-gray-300 text-gray-700">
       {/* Customer Name */}
-      <td className="py-2 px-4  border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4 text-gray-700 text-center text-sm text-nowrap">
         {customerName}
       </td>
 
       {/* Book / Product Name */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {name}
       </td>
 
       {/* Author Name */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {authorName}
       </td>
 
       {/* Customer Email */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {customerEmail}
       </td>
 
       {/* Quantity */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         <span
           className={`${
             paymentStatus === "unpaid"
@@ -110,7 +109,7 @@ const OrderTableRow = ({ order, refetch }) => {
 
       {/* Status */}
       <td
-        className={`py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap `}
+        className={`py-3 px-4  text-gray-700 text-center text-sm text-nowrap `}
       >
         <span
           className={`${
@@ -125,20 +124,20 @@ const OrderTableRow = ({ order, refetch }) => {
       </td>
 
       {/* Price */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         ${price}
       </td>
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {quantity}
       </td>
 
       {/* Order Date */}
-      <td className="py-2 px-4 border border-gray-400 text-gray-700 text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-gray-700 text-center text-sm text-nowrap">
         {new Date(order_date).toDateString()}
       </td>
 
       {/* Actions */}
-      <td className="py-2 px-4  text-center text-sm text-nowrap">
+      <td className="py-3 px-4  text-center text-sm text-nowrap">
         <button
           disabled={paymentStatus === "paid" || status === "cancelled"}
           onClick={() => handlePayment(order)}

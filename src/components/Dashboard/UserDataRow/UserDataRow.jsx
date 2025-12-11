@@ -6,18 +6,26 @@ const UserDataRow = ({ users, refetch }) => {
   let [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
   return (
-    <tr>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <tr className="bg-purple-50 border-b border-gray-300">
+      <td className="px-5 py-5  text-center   text-sm">
+        <img src={users?.image} alt="" className="w-10 h-10 rounded-full" />
+      </td>
+      <td className="px-5 py-5  text-center   text-sm">
         <p className="text-gray-900 ">{users?.name}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="px-5 py-5  text-center   text-sm">
         <p className="text-gray-900 ">{users?.email}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="px-5 py-5  text-center   text-sm">
         <p className="text-gray-900 ">{users?.role}</p>
       </td>
+      <td className="px-5 py-5  text-center   text-sm">
+        <p className="text-gray-900 ">
+          {new Date(users?.last_loggedIn).toLocaleString()}
+        </p>
+      </td>
 
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="px-5 py-5  text-center   text-sm">
         <span
           onClick={() => setIsOpen(true)}
           className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-purple-900 leading-tight"

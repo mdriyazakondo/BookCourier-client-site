@@ -88,6 +88,11 @@ const Login = () => {
               />
             </div>
           </div>
+          <Link to={"/forget-password"}>
+            <p className="font-semibold underline mb-3 text-purple-500">
+              Forget Password
+            </p>
+          </Link>
 
           <button
             type="submit"

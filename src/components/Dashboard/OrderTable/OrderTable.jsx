@@ -19,20 +19,20 @@ const OrderTable = ({ orderPayment, refetch }) => {
     order_date,
   } = orderPayment;
   return (
-    <tr>
-      <td className="px-5 border text-center bg-white flex items-center justify-center">
+    <tr className="bg-purple-50 border-b border-gray-300">
+      <td className="px-5  text-center  flex items-center justify-center py-3">
         <img src={image} alt="" className="w-14 h-12 bg-purple-600" />
       </td>
-      <td className="px-5 border text-center bg-white">{name}</td>
-      <td className="px-5 border text-center bg-white">{authorName}</td>
-      <td className="px-5 border text-center bg-white">
+      <td className="px-5  text-center ">{name}</td>
+      <td className="px-5  text-center ">{authorName}</td>
+      <td className="px-5  text-center ">
         {new Date(order_date).toDateString()}
       </td>
-      <td className="px-5 border text-center bg-white">${price}</td>
-      <td className="px-5 border text-center bg-white">{paymentStatus}</td>
+      <td className="px-5  text-center ">${price}</td>
+      <td className="px-5  text-center ">{paymentStatus}</td>
 
       {/* Status Button */}
-      <td className="px-5 border text-center bg-white">
+      <td className="px-5  text-center ">
         <span
           onClick={() => setIsOpen(true)}
           className="cursor-pointer inline-block px-3 py-1 font-semibold text-purple-900 relative"

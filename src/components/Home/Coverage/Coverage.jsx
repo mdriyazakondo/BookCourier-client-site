@@ -12,7 +12,6 @@ const DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Rangpur Division Districts
 const rangpurDistricts = [
   { name: "Rangpur", position: [25.7439, 89.2752] },
   { name: "Dinajpur", position: [25.6217, 88.635] },

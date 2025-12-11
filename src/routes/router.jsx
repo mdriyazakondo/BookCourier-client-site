@@ -23,6 +23,8 @@ import LibrarianRoute from "./PriviteRoute/LibrarianRoute";
 import CustomerRoute from "./PriviteRoute/CustomerRoute";
 import Contact from "../pages/Contact/Contact";
 import WishList from "../pages/Dashboard/WishLIst/WishList";
+import UpdateBook from "../pages/Dashboard/UpdateBook/UpdateBook";
+import ForgetPassword from "../auth/ForgetPassword/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "forget-password",
+        Component: ForgetPassword,
       },
     ],
   },
@@ -117,6 +123,14 @@ export const router = createBrowserRouter([
         element: (
           <LibrarianRoute>
             <MyBook />
+          </LibrarianRoute>
+        ),
+      },
+      {
+        path: "update-book/:id",
+        element: (
+          <LibrarianRoute>
+            <UpdateBook />
           </LibrarianRoute>
         ),
       },

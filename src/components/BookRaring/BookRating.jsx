@@ -87,7 +87,7 @@ const BookRating = ({ book }) => {
         />
         <button
           onClick={handleRating}
-          className="bg-purple-600 text-white py-2 px-5 rounded-md hover:bg-purple-700 transition-colors"
+          className="bg-purple-600 text-white py-2 px-5 rounded-md hover:bg-purple-700 transition-color cursor-pointer"
         >
           Submit Review
         </button>

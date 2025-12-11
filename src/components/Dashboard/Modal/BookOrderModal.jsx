@@ -108,14 +108,14 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
             <div className="flex justify-between mt-6">
               <button
                 type="submit"
-                className="bg-purple-500 text-white px-4 py-2 rounded-md"
+                className="bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer"
               >
-                Order Now
+                Place Order
               </button>
               <button
                 type="button"
                 onClick={closeModal}
-                className="bg-red-500 text-white px-4 py-2 rounded-md"
+                className="bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer"
               >
                 Cancel
               </button>
