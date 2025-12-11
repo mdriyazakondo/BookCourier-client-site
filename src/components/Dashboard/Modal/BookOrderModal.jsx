@@ -82,7 +82,7 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
               value={user?.displayName}
               type="text"
               {...register("name", { required: true })}
-              className="border border-gray-300 py-2  outlaine-none px-3"
+              className="border border-gray-300 py-2  outlaine-none px-3 cursor-not-allowed"
               placeholder="Enter Your Name"
             />
             <input
@@ -95,7 +95,7 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
             <input
               type="number"
               {...register("number", { required: true })}
-              className="border border-gray-300 py-2  outlaine-none px-3"
+              className="border border-gray-300 py-2  outlaine-none px-3 cursor-not-allowed"
               placeholder="Enter Your Phone Number"
             />
             <input
