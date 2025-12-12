@@ -16,12 +16,44 @@ import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 
 const UpdateBook = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
+
+  const { data: updateBooks = {} } = useQuery({
+    queryKey: ["updateBooks", id],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/update-book/${id}`);
+      return res.data;
+    },
+  });
+
+  //  {
+  //     _id: '693a91876f033d81255935e5',
+  //     bookName: 'English for Academic Skills',
+  //     authorName: 'MD RIYAZ AKONDO',
+  //     authorEmail: 'mdriyazakondo2004@gmail.com',
+  //     isbn: '978-12345678904',
+  //     publisher: 'Pearson Bangladesh',
+  //     publishedYear: '2022',
+  //     pageNumber: '34',
+  //     language: 'English',
+  //     genre: 'Education',
+  //     price: '666',
+  //     stockQuantity: '23',
+  //     edition: '2nd',
+  //     format: 'Paperback',
+  //     category: 'Education',
+  //     status: 'published',
+  //     description:
+  //       'Teaches academic writing, reading and communication. Includes practice tasks for university students. Improves overall English proficiency.',
+  //     image: 'https://i.ibb.co/ZpBfqWQn/9780521165266.jpg',
+  //     create_date: '2025-12-11T09:40:23.018Z'
+  //   }
 
   const handleBookAdd = async (data) => {
     const {
@@ -88,6 +120,7 @@ const UpdateBook = () => {
           </label>
           <input
             type="text"
+            defaultValue={updateBooks.bookName}
             {...register("bookName", { required: true })}
             placeholder="Enter book Name"
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -101,6 +134,7 @@ const UpdateBook = () => {
           <input
             {...register("isbn", { required: true })}
             type="text"
+            defaultValue={updateBooks.isbn}
             placeholder="Enter ISBN number"
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
@@ -111,6 +145,7 @@ const UpdateBook = () => {
             <FaUser className="text-purple-500" /> Publisher
           </label>
           <input
+            defaultValue={updateBooks.publisher}
             {...register("publisher", { required: true })}
             type="text"
             placeholder="Enter publisher name"
@@ -123,6 +158,7 @@ const UpdateBook = () => {
             <FaCalendarAlt className="text-purple-500" /> Published Year
           </label>
           <input
+            defaultValue={updateBooks.publishedYear}
             {...register("publishedYear", { required: true })}
             type="number"
             placeholder="Enter published year"
@@ -135,6 +171,7 @@ const UpdateBook = () => {
             <FaSortNumericDown className="text-purple-500" /> Number of Pages
           </label>
           <input
+            defaultValue={updateBooks.pageNumber}
             {...register("pageNumber", { required: true })}
             type="number"
             placeholder="Enter total pages"
@@ -147,6 +184,7 @@ const UpdateBook = () => {
             <FaLanguage className="text-purple-500" /> Language
           </label>
           <input
+            defaultValue={updateBooks.language}
             {...register("language", { required: true })}
             type="text"
             placeholder="Enter language"
@@ -159,6 +197,7 @@ const UpdateBook = () => {
             <FaLayerGroup className="text-purple-500" /> Genre
           </label>
           <input
+            defaultValue={updateBooks.genre}
             {...register("genre", { required: true })}
             type="text"
             placeholder="Enter genre"
@@ -171,6 +210,7 @@ const UpdateBook = () => {
             <FaDollarSign className="text-purple-500" /> Price
           </label>
           <input
+            defaultValue={updateBooks.price}
             {...register("price", { required: true })}
             type="number"
             placeholder="Enter price"
@@ -183,6 +223,7 @@ const UpdateBook = () => {
             <FaSortNumericDown className="text-purple-500" /> Stock Quantity
           </label>
           <input
+            defaultValue={updateBooks.stockQuantity}
             {...register("stockQuantity", { required: true })}
             type="number"
             placeholder="Enter stock quantity"
@@ -195,6 +236,7 @@ const UpdateBook = () => {
             <FaFileAlt className="text-purple-500" /> Edition
           </label>
           <input
+            defaultValue={updateBooks?.edition}
             {...register("edition", { required: true })}
             type="text"
             placeholder="Enter edition"
@@ -207,6 +249,7 @@ const UpdateBook = () => {
             <FaLayerGroup className="text-purple-500" /> Format
           </label>
           <input
+            defaultValue={updateBooks.format}
             {...register("format", { required: true })}
             type="text"
             placeholder="Hardcover / Paperback / eBook"
@@ -219,6 +262,7 @@ const UpdateBook = () => {
             <FaLayerGroup className="text-purple-500" /> Category
           </label>
           <input
+            defaultValue={updateBooks.category}
             {...register("category", { required: true })}
             type="text"
             placeholder="Enter category"
@@ -233,7 +277,7 @@ const UpdateBook = () => {
           <select
             {...register("status", { required: true })}
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
-            defaultValue=""
+            defaultValue={updateBooks?.status}
           >
             <option value="" disabled>
               Select status
@@ -261,6 +305,7 @@ const UpdateBook = () => {
             Book Description
           </label>
           <textarea
+            defaultValue={updateBooks?.description}
             {...register("description", { required: true })}
             placeholder="Enter book description"
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
