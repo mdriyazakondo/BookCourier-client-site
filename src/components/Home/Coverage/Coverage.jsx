@@ -24,11 +24,14 @@ const rangpurDistricts = [
 ];
 
 const Coverage = () => {
-  // Center to Rangpur Division area
+
   const center = [25.7439, 89.2752];
 
   return (
     <Container>
+      <h1 className="text-center font-bold text-purple-500 text-3xl mb-3">
+        Our Delivery Coverage Areas
+      </h1>
       <div style={{ height: "500px" }} className="">
         <MapContainer
           center={center}
