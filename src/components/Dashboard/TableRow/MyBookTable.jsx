@@ -51,6 +51,7 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
         </Link>
 
         <button
+          disabled={status === "publisher"}
           onClick={() => handleDelete(book._id)}
           className="bg-red-500 text-white py-1 px-4 rounded-sm ml-2"
         >
