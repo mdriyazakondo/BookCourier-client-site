@@ -13,7 +13,7 @@ const Login = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from || "/";
   const handleLogin = async (data) => {
     try {
       const result = await loginUserFunc(data.email, data.password);

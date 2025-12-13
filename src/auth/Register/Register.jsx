@@ -14,14 +14,14 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }, 
+    formState: { errors },
   } = useForm();
 
   const { createUserFunc } = useAuth();
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from || "/";
 
   const handleRegister = async (data) => {
     const imageFile = data.photo[0];

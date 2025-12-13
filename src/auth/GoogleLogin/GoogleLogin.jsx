@@ -9,24 +9,30 @@ const GoogleLogin = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+
+  const from = location.state?.from || "/";
+
   const handleGoogleLogin = async () => {
     try {
       const result = await googleUserFunc();
       const user = result.user;
       if (!user) return;
+
       const userData = {
         name: user.displayName,
         email: user.email,
         image: user.photoURL,
       };
-      await axiosSecure.post(`/users`, userData);
+
+      await axiosSecure.post("/users", userData);
+
       Swal.fire({
         title: `Welcome ${user.displayName}!`,
         text: "Login successful",
         icon: "success",
         confirmButtonColor: "#22c55e",
       });
+
       navigate(from, { replace: true });
     } catch (error) {
       Swal.fire({
@@ -39,15 +45,13 @@ const GoogleLogin = () => {
   };
 
   return (
-    <div>
-      <button
-        onClick={handleGoogleLogin}
-        className="py-2 w-full bg-purple-500 text-white mt-4 cursor-pointer rounded-sm flex items-center gap-2 justify-center hover:bg-purple-600 transition"
-      >
-        <FaGoogle />
-        Google Login
-      </button>
-    </div>
+    <button
+      onClick={handleGoogleLogin}
+      className="py-2 w-full bg-purple-500 text-white mt-4 cursor-pointer rounded-sm flex items-center gap-2 justify-center hover:bg-purple-600 transition"
+    >
+      <FaGoogle />
+      Google Login
+    </button>
   );
 };
 
