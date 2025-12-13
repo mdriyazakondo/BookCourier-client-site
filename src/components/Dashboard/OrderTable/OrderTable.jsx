@@ -23,13 +23,13 @@ const OrderTable = ({ orderPayment, refetch }) => {
       <td className="px-5  text-center  flex items-center justify-center py-3">
         <img src={image} alt="" className="w-14 h-12 bg-purple-600" />
       </td>
-      <td className="px-5  text-center ">{name}</td>
-      <td className="px-5  text-center ">{authorName}</td>
-      <td className="px-5  text-center ">
+      <td className="px-5 text-nowrap text-center ">{name}</td>
+      <td className="px-5 text-nowrap text-center ">{authorName}</td>
+      <td className="px-5 text-nowrap text-center ">
         {new Date(order_date).toDateString()}
       </td>
-      <td className="px-5  text-center ">${price}</td>
-      <td className="px-5  text-center ">{paymentStatus}</td>
+      <td className="px-5 text-nowrap text-center ">${price}</td>
+      <td className="px-5 text-nowrap  text-center ">{paymentStatus}</td>
 
       {/* Status Button */}
       <td className="px-5  text-center ">

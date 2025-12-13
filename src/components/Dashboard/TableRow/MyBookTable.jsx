@@ -15,16 +15,16 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
         <img src={image} alt={bookName} className="w-16 h-10" />
       </td>
 
-      <td className="px-5  text-center bg-white">{bookName}</td>
-      <td className="px-5  text-center bg-white">{authorName}</td>
-      <td className="px-5  text-center bg-white">
+      <td className="px-5  text-center text-nowrap bg-white">{bookName}</td>
+      <td className="px-5  text-center text-nowrap bg-white">{authorName}</td>
+      <td className="px-5  text-center text-nowrap bg-white">
         {new Date(create_date).toDateString()}
       </td>
-      <td className="px-5  text-center bg-white">${price}</td>
-      <td className="px-5  text-center bg-white">{language}</td>
+      <td className="px-5  text-center text-nowrap bg-white">${price}</td>
+      <td className="px-5  text-center text-nowrap bg-white">{language}</td>
 
       {/* Status Button */}
-      <td className="px-5  text-center bg-white">
+      <td className="px-5  text-center text-nowrap bg-white">
         <span
           onClick={() => setIsOpen(true)}
           className="cursor-pointer inline-block px-3 py-1 font-semibold text-purple-900 relative"
@@ -42,7 +42,7 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
         />
       </td>
 
-      <td className="px-5  text-center bg-white">
+      <td className="px-5  text-center text-nowrap bg-white">
         <Link
           to={`/dashboard/update-book/${book._id}`}
           className="bg-purple-500 text-white py-1 px-4 rounded-sm"
@@ -51,7 +51,7 @@ const MyBookTable = ({ book, handleDelete, refetch }) => {
         </Link>
 
         <button
-          disabled={status === "publisher"}
+          disabled={status === "published"}
           onClick={() => handleDelete(book._id)}
           className="bg-red-500 text-white py-1 px-4 rounded-sm ml-2"
         >

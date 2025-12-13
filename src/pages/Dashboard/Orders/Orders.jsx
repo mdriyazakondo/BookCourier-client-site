@@ -41,20 +41,20 @@ const Orders = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Book Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       Author Name
                     </th>
 
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
                       create date
                     </th>
@@ -67,15 +67,15 @@ const Orders = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3  text-nowrap border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
-                      language
+                      Payment Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                      className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                     >
-                      Status
+                      Delivery Status
                     </th>
                   </tr>
                 </thead>

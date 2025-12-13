@@ -41,13 +41,13 @@ const Invoices = () => {
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                        className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                       >
                         Customer Name
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3   border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
+                        className="px-5 py-3 text-nowrap  border-b border-gray-200 text-gray-800  font-semibold text-sm uppercase  text-center"
                       >
                         Customer Email
                       </th>

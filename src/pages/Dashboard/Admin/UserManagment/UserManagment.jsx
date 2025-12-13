@@ -56,7 +56,7 @@ const UserManagment = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3   border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
+                      className="px-5 py-3 text-nowrap  border-b text-center font-semibold border-gray-200 text-gray-800   text-sm uppercase "
                     >
                       Last Login
                     </th>
