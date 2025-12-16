@@ -68,6 +68,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+    errorElement: <ErrorPage />,
     element: (
       <PrivateRoute>
         <DashboardLayout />
