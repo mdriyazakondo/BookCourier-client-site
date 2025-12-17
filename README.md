@@ -15,12 +15,19 @@ BookCourier is designed to make book sharing, renting, or exchanging easier and 
 
 # Key Features
     Browse Books – View all available books with search & filter options
+
     Add New Books – Users can add new books to the system
+
     View Book Details – Detailed info including category, condition, availability
+
     Authentication System – Secure login/register (JWT or Firebase depending on your setup)
+
     Wishlist / Borrow Features (if implemented)
+
     Fully Responsive – Works smoothly on mobile, tablet, and desktop
+
     Fast & Optimized – React + Vite + Tailwind for a fast UI
+    
     Modern UI/UX – Clean, minimal, and user friendly
 
 # Technologies Used
